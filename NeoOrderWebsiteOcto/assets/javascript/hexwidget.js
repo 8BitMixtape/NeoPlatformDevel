@@ -63,7 +63,7 @@ $(function () {
             overlayClassName: "bgc-raspberry-pink bloc-bg-texture texture-diagonal-lines",
             contentClassName: 'panel-shadow',
             buttons: [],
-            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ul class=""><li>Start with 8BitmixtapeNEO turned off, Connect 8BitMixtapeNEO <b>Audio Programming</b> to <b>CPU speaker out</b></li> <li>Power it on</li>  <li>While Programming Led is blinking, click <b>PLAY</b> button</li></ul></p></div>',
+            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ul class=""><li>Start with 8BitmixtapeNEO turned off, Connect 8BitMixtapeNEO <b>Audio Programming</b> to <b>CPU speaker out</b></li> <li>Power it on</li>  <li>While Programming Led is blinking, click <b>PLAY</b> button (recommended browser: firefox, chrome)</li></ul></p></div>',
             input: '<audio controls="controls"><source src="' + hex_id + '" preload="" type="audio/x-wav"></audio>'
         });
       }
