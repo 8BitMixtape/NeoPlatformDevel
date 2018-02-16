@@ -38,17 +38,17 @@ is_hidden = 0
                     <div class="panel-footer">
                     
                     
-            <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>EDIT</a>
-
-              <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DOWNLOAD</button>
+                    <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>EDIT</b></a>
 
                      {% if record.hex_file.path %}
-                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
                      {% else %}
                          {% if record.wav_file %}
-                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
                          {% endif %}            
                      {% endif %}
+
+                     <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.deleteMixtape(this, event)"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>DELETE</b></a>
 
                     </div>
                     
