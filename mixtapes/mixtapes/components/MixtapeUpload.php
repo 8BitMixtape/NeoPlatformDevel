@@ -11,7 +11,7 @@ use File;
 use ValidationException;
 
 
-class UploadForm extends ComponentBase
+class MixtapeUpload extends ComponentBase
 {
     
     public function componentDetails()

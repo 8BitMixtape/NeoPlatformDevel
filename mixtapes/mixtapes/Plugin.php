@@ -7,7 +7,7 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Mixtapes\Mixtapes\Components\UploadForm' => 'uploadform',
+            'Mixtapes\Mixtapes\Components\MixtapeUpload' => 'mixtapeupload',
             'Mixtapes\Mixtapes\Components\MixtapeHex' => 'mixtapehex',
             'Mixtapes\Mixtapes\Components\MyMixtape' => 'mymixtape',            
             'Mixtapes\Mixtapes\Components\MixtapeEdit' => 'mixtapeedit'            
