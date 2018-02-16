@@ -1,7 +1,7 @@
 plugin:
     name: 'mixtapes.mixtapes::lang.plugin.name'
     description: 'mixtapes.mixtapes::lang.plugin.description'
-    author: 'Budi Prakosa'
+    author: 'Budi Iyok Prakosa'
     icon: oc-icon-bug
     homepage: ''
 navigation:
