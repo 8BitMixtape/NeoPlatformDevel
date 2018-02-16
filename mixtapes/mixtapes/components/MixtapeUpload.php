@@ -88,10 +88,19 @@ class MixtapeUpload extends ComponentBase
             $form, [
                'name' => 'required',
                'description' => 'required',
-               'hex_file' => 'required',
-               'valid_zip_file' => 'required'
+               'hex_file' => 'required'
             ]
         );
+
+
+        $validator->sometimes('valid_zip_file', 'required', function($input) {
+            if($input->hex_file === null)
+            {
+                return false;
+            }else{
+                return true;
+            }
+        });
 
         if ($validator->fails()) {
             return Redirect::back()->withErrors($validator)->withInput();;   
