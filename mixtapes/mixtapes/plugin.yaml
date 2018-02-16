@@ -1,0 +1,11 @@
+plugin:
+    name: 'mixtapes.mixtapes::lang.plugin.name'
+    description: 'mixtapes.mixtapes::lang.plugin.description'
+    author: 'Budi Prakosa'
+    icon: oc-icon-bug
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Mixtapes
+        url: mixtapes/mixtapes/mixtapes
+        icon: icon-birthday-cake

@@ -1,0 +1,54 @@
+title = "User Guide"
+url = "/user-guide"
+layout = "default"
+description = "Articles"
+
+==
+
+{% partial "header" %}
+
+<!-- bloc-7 -->
+<div class="bloc bgc-white l-bloc" id="bloc-7">
+	<div class="container bloc-lg">
+		<div class="row voffset">
+			<div class="col-sm-10">
+				<h3 class="mg-md text-w-70">
+					Heading content
+				</h3>
+				<p class="text-w-80">
+					Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+				</p>
+			</div>
+			<div class="col-sm-2">
+				<ul class="list-unstyled list-sp-md">
+					<li>
+						<a href="{{ 'home'|page }}">HOME</a>
+					</li>
+					<li>
+						<a href="{{ 'home'|page }}">USER-GUIDE</a>
+					</li>
+					<li>
+						<a href="{{ 'home'|page }}">FAQ</a>
+					</li>
+					<li>
+						<a href="{{ 'home'|page }}">FORUM</a>
+					</li>
+					<li>
+						<a href="{{ 'home'|page }}">BUY</a>
+					</li>
+					<li>
+						<a href="{{ 'articles'|page }}">Articles</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-7 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+
+{% partial "footer" %}
+

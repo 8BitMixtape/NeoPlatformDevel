@@ -1,0 +1,23 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table mixtapes_mixtapes_'
+    - builder_table_create_mixtapes_mixtapes_.php
+1.0.3:
+    - 'Drop table mixtapes_mixtapes_'
+    - builder_table_delete_mixtapes_mixtapes_.php
+1.0.4:
+    - 'Created table mixtapes_mixtapes_'
+    - builder_table_create_mixtapes_mixtapes__2.php
+1.0.5:
+    - 'Updated table mixtapes_mixtapes_'
+    - builder_table_update_mixtapes_mixtapes_.php
+1.0.6:
+    - 'Updated table mixtapes_mixtapes_'
+    - builder_table_update_mixtapes_mixtapes__2.php
+1.0.7:
+    - 'Updated table mixtapes_mixtapes_'
+    - builder_table_update_mixtapes_mixtapes__3.php
+1.0.8:
+    - 'Updated table mixtapes_mixtapes_'
+    - builder_table_update_mixtapes_mixtapes__4.php

@@ -1,0 +1,111 @@
+title = "Mixtape Detail"
+url = "/mixtape/detail/:id?"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Mixtapes\Mixtapes\Models\Mixtape"
+identifierValue = "{{ :id }}"
+modelKeyColumn = "id"
+displayColumn = "name"
+notFoundMessage = "Record not found"
+==
+{% partial "header" %}
+
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+
+<!-- bloc-7 -->
+<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
+
+
+{% if record %}
+
+
+<div class="container bloc-lg ">
+		<div class="row">
+			<div class="col-sm-9">
+				<div class="panel panel-shadow">
+					<div class="panel-heading">
+						<h3 class="mg-clear">
+							 {{ attribute(record, displayColumn) }}
+						</h3>
+					</div>
+					<div class="panel-body">
+						<p>
+							{{ record.description }}
+						</p>
+						
+              <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DOWNLOAD</button>
+
+                    
+               {% if record.hex_file.path %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+             {% else %}
+                 {% if record.wav_file %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+                 {% endif %}            
+             {% endif %}
+
+					</div>
+				</div>
+				<div class="panel panel-shadow">
+					<div class="panel-heading nfo_panel_heading">
+						<h3 class="mg-clear">
+			            	<b>a:\README.TXT _</b>
+						</h3>
+					</div>				
+					<div class="panel-body nfo_panel">
+						<pre class="nfo_viewer">
+						    {% if record.info %}
+							{{ record.info }}
+							{% else %}
+							README NOT FOUND
+							{% endif %}
+						</pre>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-3">
+		
+				<div class="panel panel-shadow">
+					<div class="panel-heading">
+						<h5 class="mg-clear">
+						Uploaded by
+						</h5>
+					</div>
+					<div class="panel-body">
+<!-- cardbox -->			
+<div class="text-center card-box">			
+<div class="member-card">
+    <div class="thumb-xl member-thumb m-b-10 center-block"> <img src="{{ record.user.avatar.getThumb(100, 100, {'mode' : 'crop'}) }}" class="img-circle img-thumbnail" alt="profile-image"></div>
+    <div class="">
+        <h4 class="m-b-5">{{ record.user.name }}</h4>
+    </div>
+    <div class="text-left m-t-40">
+        <p class="text-muted font-13"><strong>{{ record.user.aboutme }}</span></p>
+    </div>
+</div>
+</div>			
+<!-- cardbox -->	
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}
+
+
+</div>
+<!-- bloc-7 END -->
+
+<!-- ScrollToTop Button -->
+<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
+<!-- ScrollToTop Button END-->
+{% partial "footer" %}

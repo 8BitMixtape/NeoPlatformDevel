@@ -1,0 +1,13 @@
+columns:
+    name:
+        label: 'Synth Name'
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: Description
+        type: text
+    hex:
+        label: Hex
+        type: text
+        invisible: true

@@ -1,0 +1,10 @@
+name: Mixtapes
+modelClass: Mixtapes\Mixtapes\Models\Mixtape
+form: $/mixtapes/mixtapes/models/mixtape/fields.yaml
+defaultRedirect: mixtapes/mixtapes/mixtapes
+create:
+    redirect: 'mixtapes/mixtapes/mixtapes/update/:id'
+    redirectClose: mixtapes/mixtapes/mixtapes
+update:
+    redirect: mixtapes/mixtapes/mixtapes
+    redirectClose: mixtapes/mixtapes/mixtapes

@@ -1,0 +1,38 @@
+<form method="POST" action="{{ url('/user/upload') }}" accept-charset="UTF8" enctype="multipart/form-data">
+
+    <input type="hidden" name="_handler" value="onSave">
+    {{ form_token() }}
+    {{ form_sessionKey() }}
+
+    <div class="form-group">
+        <label for="name">Mixtape Name</label>
+        <input name="name" class="form-control" id="name" required="" aria-invalid="false" value="{{ form_value('name') }}" type="text">
+        {{ errors.first('name') }}
+    </div>
+
+    <div class="form-group">
+        <label for="description">Description</label>
+    </label><textarea id="description" name="description" class="form-control" rows="4" cols="50" required="" aria-invalid="false" >{{ form_value('description') }}</textarea>
+    <div class="help-block"></div>
+    {{ errors.first('description') }}
+
+    </div>
+
+
+
+    <div class="form-group">
+        <label class="btn btn-default btn-file">
+            Compiled Sketch Zip File.. <input name="hex_file" type="file" style="display: none;">
+        </label>
+        {{ errors.first('hex_file') }}
+
+    </div>
+
+    <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Upload</button>
+
+
+
+    {% flash success %}
+        <p>{{ message }}</p>
+    {% endflash %}
+</form>

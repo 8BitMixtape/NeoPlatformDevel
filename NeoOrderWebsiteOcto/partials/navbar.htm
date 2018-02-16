@@ -1,0 +1,74 @@
+[viewBag]
+
+[menuUserWidget]
+paramCode = "code"
+forceSecure = 0
+accountPage = "account"
+==
+<div class="collapse navbar-collapse navbar-1 special-dropdown-nav">
+				<ul class="site-navigation nav navbar-nav navigation-font">
+					<li>
+						<a href="{{ 'home'|page }}" class="ltc-tangerine-yellow">HOME</a>
+					</li>
+
+				    <li>
+						<a href="{{ 'mixtape'|page }}" class="ltc-tangerine-yellow">MIXTAPE</a>
+					</li>
+
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle ltc-tangerine-yellow" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">DOCS</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" target="_blank">User Docs</a></li>
+                        <li><a href="http://wiki.8bitmixtape.cc" target="_blank">Developer Docs</a></li>
+                        <li><a href="https://github.com/8bitmixtape" target="_blank">Github Organization</a></li>
+
+                      </ul>
+                    </li>
+					
+					<li>
+						<a href="{{ 'home'|page }}" class="ltc-tangerine-yellow">FORUM</a>
+					</li>
+					<li>
+						<a href="{{ 'home'|page }}" class="ltc-tangerine-yellow">BUY</a>
+					</li>
+
+
+                    
+    {% if user %}
+    <li class="dropdown menu-user-widget">
+        <a class="dropdown-toggle menu-user-widget-switch" style="padding: 10px 15px" href="#" data-toggle="dropdown">
+            <img class="img-circle" src="{{ user.avatar.getThumb(30, 30, {'mode' : 'crop'}) }}">
+            &nbsp; {{ user.name }} <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" style="padding:17px;">
+
+            <li><a href="{{ 'upload-mixtape'|page }}"><i class="icon-cog"></i> &nbsp; Upload Mixtape</a></li>                
+            <li><a href="{{ 'my-mixtape'|page }}"><i class="icon-cog"></i> &nbsp; My Mixtape</a></li>        
+            <li><a href="{{ accountPage|page }}"><i class="icon-cog"></i> &nbsp; Favourites</a></li>                    
+            <li><a href="{{ accountPage|page }}"><i class="icon-cog"></i> &nbsp; {{ _('account', 'rainlab.user::lang.account') }}</a></li>
+            <li><a href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'"><i class="icon-signout"></i> &nbsp; {{ _('sign_out') }}</a></li>
+        </ul>
+    </li>
+    {% else %}
+    <li class="dropdown menu-user-widget-signin">
+        <a class="dropdown-toggle menu-user-widget-signin-switch ltc-tangerine-yellow" href="#" data-toggle="dropdown">{{ _('sign_in', 'rainlab.user::lang.account') }} &nbsp; <i class="icon-off"></i></a>
+        <div class="dropdown-menu" style="padding: 17px">
+            <form class="menu-user-widget-sigin-form" data-request="onSignin">
+                <div class="form-group menu-user-widget-signin-login">
+                    <input name="login" type="text" placeholder="{{ loginAttributeLabel }}">
+                </div>
+                <div class="form-group menu-user-widget-signin-password">
+                    <input name="password" id="password" type="password" placeholder="{{ _('password', 'rainlab.user::lang.account') }}">
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-purple-x11 menu-user-widget-signin-btn">{{ _('login', 'rainlab.user::lang.account') }}</button>
+
+            </form>
+        </div>
+    </li>
+    {% endif %}
+
+
+
+				</ul>
+			</div>

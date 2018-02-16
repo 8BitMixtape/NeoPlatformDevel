@@ -1,0 +1,28 @@
+fields:
+    name:
+        label: 'Synth Name'
+        oc.commentPosition: ''
+        span: full
+        type: text
+    description:
+        label: Description
+        size: ''
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+    hex:
+        label: 'Copy Paste Arduino Console Output'
+        size: ''
+        oc.commentPosition: ''
+        span: full
+        type: textarea
+    hex_file:
+        label: 'File upload'
+        span: full
+        oc.commentPosition: ''
+        mode: file
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload

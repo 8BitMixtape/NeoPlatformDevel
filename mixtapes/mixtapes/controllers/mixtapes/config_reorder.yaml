@@ -1,0 +1,4 @@
+title: Mixtapes
+modelClass: Mixtapes\Mixtapes\Models\Mixtape
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,77 @@
+title = "8BitmixtapeNEO - My Mixtape"
+url = "/user/mixtape"
+layout = "default"
+is_hidden = 0
+
+[mymixtape]
+==
+{% partial "header" %}
+
+
+
+<div class="bloc bgc-tangerine-yellow d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
+    <div class="container bloc-lg">
+        <div class="row grid"  data-masonry='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+            
+   {%  set mixtapes = mymixtape.mixtapes %}
+
+   {% for record in mixtapes %}
+    {# Use spaceless tag to remove spaces inside the A tag. #}
+    {% spaceless %}
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item">
+        <div class="panel bgc-columbia-blue panel-shadow">                    
+            <div class="panel-heading bgc-raspberry-pink">
+                <h4 class="mg-clear tc-white">#{{ record.id }} <b>{{ record.name }}</b></h4>
+            </div>
+            
+            <div class="panel-body">
+             {{ html_limit(record.description, 150)|raw }}                      	
+            </div>
+            
+            <div class="panel-footer">
+            
+            
+            <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>EDIT</a>
+            
+             {% if record.hex_file.path %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+             {% else %}
+                 {% if record.wav_file %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
+                 {% endif %}            
+             {% endif %}
+ 
+            <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.deleteMixtape(this, event)"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DELETE</a>
+
+            </div>
+            
+        </div>
+    </div>
+    {% endspaceless %}
+{% else %}
+{{ noRecordsMessage }}
+{% endfor %}
+
+
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+window.deleteMixtape = function(dom, event){
+   // event.preventDefault();
+   var hex_id = (dom.getAttribute('value')); 
+
+    $.request('onDelete', {
+        data: {id: hex_id},
+        confirm: "Confirm delete?",
+    })
+}
+
+</script>
+
+{% partial "masonry" %}
+
+{% partial "footer" %}
