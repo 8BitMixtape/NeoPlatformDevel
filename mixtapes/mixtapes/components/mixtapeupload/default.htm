@@ -24,8 +24,7 @@
         <label class="btn btn-default btn-file">
             Compiled Sketch Zip File.. <input name="hex_file" type="file" style="display: none;">
         </label>
-        {{ errors.first('hex_file') }}
-
+        {{ errors.first('hex_file') }}{{ errors.first('valid_zip_file') }}
     </div>
 
     <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Upload</button>
