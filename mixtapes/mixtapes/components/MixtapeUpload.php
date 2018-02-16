@@ -85,7 +85,7 @@ class MixtapeUpload extends ComponentBase
 
             $zip->close();
         } else {
-            echo 'Zip Extraction Failed';
+            Flash::error('Zip Extraction Failed!');
         }
 
         $mixtape->save();
