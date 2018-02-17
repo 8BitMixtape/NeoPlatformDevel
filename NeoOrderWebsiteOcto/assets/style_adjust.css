@@ -188,7 +188,9 @@ div.social-links{
 }
 
 
-
+.panel-body-mixtape {
+     height: 80px;   
+}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
