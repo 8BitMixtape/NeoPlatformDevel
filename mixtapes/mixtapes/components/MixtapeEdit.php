@@ -109,8 +109,7 @@ class MixtapeEdit extends ComponentBase
             $validator = Validator::make(
                 $form, [
                    'name' => 'required',
-                   'description' => 'required',
-                   'hex_file' => 'required'
+                   'description' => 'required'
                 ]
             );
     
