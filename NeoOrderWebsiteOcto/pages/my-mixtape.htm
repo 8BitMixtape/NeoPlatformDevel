@@ -31,7 +31,7 @@ is_hidden = 0
                         <h4 class="mg-clear tc-white"><a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a></h4>
                     </div>
                     
-                    <div class="panel-body">
+                    <div class="panel-body panel-body-mixtape">
                      {{ html_limit(record.description, 150)|raw }}                     	
                     </div>
                     
@@ -98,6 +98,5 @@ window.deleteMixtape = function(dom, event){
 
 </script>
 
-{% partial "masonry" %}
 
 {% partial "footer" %}
