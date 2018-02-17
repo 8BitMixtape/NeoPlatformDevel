@@ -206,6 +206,10 @@ div.social-links{
         padding: 10px !important;
     }
 
+    .sm-padding{
+      padding: 10px !important;
+    }
+
     .navbar-brand img{
       max-height: 20px;
       width:auto;   
