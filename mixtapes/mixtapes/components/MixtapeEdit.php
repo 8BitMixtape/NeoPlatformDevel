@@ -76,6 +76,8 @@ class MixtapeEdit extends ComponentBase
                     {
                         $info_string = ($matches[0][0]);
                         $mixtape->info = $info_string;
+                    }else{
+                        $mixtape->info = "";
                     }
                             
                     if ($wav_string)
