@@ -1,4 +1,6 @@
-{{ form_open({ request: 'onUpdate', model: mixtape }) }}
+<form method="POST" action="{{ url('/user/mixtape/edit') }}/{{this.param.id}}" accept-charset="UTF8" enctype="multipart/form-data">
+
+    <input type="hidden" name="_handler" value="onUpdate">
 
     {{ form_token() }}
     {{ form_sessionKey() }}
@@ -23,11 +25,10 @@
         <label class="btn btn-default btn-file">
             Compiled Sketch Zip File.. <input name="hex_file" type="file" style="display: none;">
         </label>
-        {{ errors.first('hex_file') }}
-
+        {{ errors.first('hex_file') }}{{ errors.first('valid_zip_file') }}
     </div>
 
-    <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Update</button>
+    <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Upload</button>
 
 
 
@@ -36,4 +37,4 @@
     {% endflash %}
 
 
-{{ form_close }}
+</form>
