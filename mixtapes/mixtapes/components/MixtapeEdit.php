@@ -53,7 +53,7 @@ class MixtapeEdit extends ComponentBase
             return Redirect::back();               
         }
 
-        if($hex_file){
+        if($hex_file && $hex_file->getPathName()){
 
             $hex_filename = $hex_file->getClientOriginalName();
             $hex_path = $hex_file->getPathName();
@@ -84,12 +84,16 @@ class MixtapeEdit extends ComponentBase
                     {
                         $extracted_wav_file = (new \System\Models\File)->fromData($wav_string, $hex_wav_filename);
                         $mixtape->wav_file = $extracted_wav_file;
+
+                        if(!$hex_string) $mixtape->hex_file->delete();
                     }
     
                     if ($hex_string)
                     {
                         $extracted_hex_file = (new \System\Models\File)->fromData($hex_string, $hex_hex_filename);
                         $mixtape->hex_file = $extracted_hex_file;
+
+                        if(!$wav_string) $mixtape->wav_string->delete();
                     }            
     
                     if ($wav_string || $hex_string)
@@ -127,6 +131,7 @@ class MixtapeEdit extends ComponentBase
                 return Redirect::back()->withErrors($validator)->withInput();;   
             }
 
+            // dd($hex_file);
         $mixtape->name = Input::get('name');
         $mixtape->description = Input::get('description');
         $mixtape->zip_file = $hex_file;
