@@ -131,6 +131,8 @@ class MixtapeEdit extends ComponentBase
         $mixtape->zip_file = $hex_file;
         $mixtape->save();
 
+        Flash::success('Mixtape edited!');
+
     }
  
     protected function loadMixtape(){

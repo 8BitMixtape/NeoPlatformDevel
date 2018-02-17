@@ -1,4 +1,4 @@
-<form method="POST" action="{{ url('/user/mixtape/edit') }}/{{this.param.id}}" accept-charset="UTF8" enctype="multipart/form-data">
+    {{ form_open({ request: 'onUpdate', model: mixtape, enctype: 'multipart/form-data',  'accept-charset': 'UTF8'}) }}
 
     <input type="hidden" name="_handler" value="onUpdate">
 
@@ -28,7 +28,7 @@
         {{ errors.first('hex_file') }}{{ errors.first('valid_zip_file') }}
     </div>
 
-    <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Upload</button>
+    <button type="submit" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">Update</button>
 
 
 
