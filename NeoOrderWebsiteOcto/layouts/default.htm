@@ -24,16 +24,12 @@ security = "all"
 	
 	<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	
-	
-	
-	
 	<script src="{{ 'assets/javascript/jquery-2.1.0.min.js'|theme }}"></script>
 	<script src="{{ 'assets/javascript/bootstrap.min.js'|theme }}"></script>
 	<script src="{{ 'assets/javascript/blocs.min.js'|theme }}"></script>
 	<script src="{{ 'assets/javascript/lazysizes.min.js'|theme }}" defer></script>
 
 
-	<script src="{{ 'assets/javascript/hex2wav.js'|theme }}"></script>
 	<script src="{{ 'assets/javascript/vex.combined.min.js'|theme }}"></script>
 
 	<title>8BitMixtapeNEO - {{ this.page.title }}</title>
@@ -61,6 +57,7 @@ security = "all"
     {% scripts %}
     
     <script>vex.defaultOptions.className = 'vex-theme-wireframe';</script>
+    <script src="{{ 'assets/javascript/hex2wav.js'|theme }}"></script>
     <script src="{{ 'assets/javascript/hexwidget.js'|theme }}"></script>
 
 </body>
