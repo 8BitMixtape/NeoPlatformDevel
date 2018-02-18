@@ -1,0 +1,58 @@
+@font-face {
+	font-family: '8BIT WONDER';
+	src: url('fonts/8BITWONDERNominal.eot');
+	src: url('fonts/8BITWONDERNominal.eot?#iefix') format('embedded-opentype'),
+		url('fonts/8BITWONDERNominal.woff') format('woff'),
+		url('fonts/8BITWONDERNominal.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'CMOD Subotron';
+	src: url('fonts/CMODSubotron-BonusLevel.eot');
+	src: url('fonts/CMODSubotron-BonusLevel.eot?#iefix') format('embedded-opentype'),
+		url('fonts/CMODSubotron-BonusLevel.woff') format('woff'),
+		url('fonts/CMODSubotron-BonusLevel.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+    font-family: 'FFF-Forward';
+    src:url('fonts/FFF-Forward.ttf.woff') format('woff'),
+        url('fonts/FFF-Forward.ttf.svg#FFF-Forward') format('svg'),
+        url('fonts/FFF-Forward.ttf.eot'),
+        url('fonts/FFF-Forward.ttf.eot?#iefix') format('embedded-opentype'); 
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.tracked {
+ letter-spacing:.1em
+}
+.tracked-tight {
+ letter-spacing:-.05em
+}
+.tracked-mega {
+ letter-spacing:.25em
+}
+
+.fontforward {
+    font-family: 'FFF-Forward';
+}
+
+.fontwonder {
+    font-family: '8BIT WONDER';
+}
+
+.fontcmod {
+    font-family: 'CMOD Subotron';
+}
+
+
+.ltc-tangerine-yellow.fontforward.tracked-mega {
+    font-size: 0.8em;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
