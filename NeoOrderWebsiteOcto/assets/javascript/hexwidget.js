@@ -63,7 +63,7 @@ $(function () {
             overlayClassName: "bgc-raspberry-pink bloc-bg-texture texture-diagonal-lines",
             contentClassName: 'panel-shadow',
             buttons: [],
-            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ul class=""><li>Start with 8BitmixtapeNEO turned off, Connect 8BitMixtapeNEO <b>Audio Programming</b> to <b>CPU speaker out</b></li> <li>Power it on</li>  <li>While Programming Led is blinking, click <b>PLAY</b> button (recommended browser: firefox, chrome)</li></ul></p></div>',
+            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ol><li class=“”>First, start turning on your synthesizer by pressing the <b>power button</b> on the middle.</li><li class=“”>Second, you can tell that it’s on by looking at the <b>blinking LED</b> on the right side of your synthesizer. </li><li class=“”>Then click <b>PLAY button</b> before blinking time runs out (5 seconds).</li><li class=“”>Next, your LED will <b>blink rapidly</b> when installation is running. Voila! Your synthesizer is ready to use!</li></ol> </p></div>',
             input: '<audio controls="controls"><source src="' + hex_id + '" preload="" type="audio/x-wav"></audio>'
         });
       }
@@ -75,7 +75,7 @@ $(function () {
             overlayClassName: "bgc-raspberry-pink bloc-bg-texture texture-diagonal-lines",
             contentClassName: 'panel-shadow',
             buttons: [],
-            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ul class=""><li>Start with 8BitmixtapeNEO turned off, Connect 8BitMixtapeNEO <b>Audio Programming</b> to <b>CPU speaker out</b></li> <li>Power it on</li>  <li>While Programming Led is blinking, click <b>INSTALL</b></li></ul></p></div>',
+            unsafeMessage: '<div class="mg-lg fontpress"><h3  class="fontbit">' + hex_name + '</h3> <hr class=""/> <p>Program name: <b>' + hex_name + '</b></p> <p> <ol><li class=“”>First, start turning on your synthesizer by pressing the <b>power button</b> on the middle.</li><li class=“”>Second, you can tell that it’s on by looking at the <b>blinking LED</b> on the right side of your synthesizer. </li><li class=“”>Then click <b>INSTALL</b> before blinking time runs out (5 seconds).</li><li class=“”>Next, your LED will <b>blink rapidly</b> when installation is running. Voila! Your synthesizer is ready to use!</li></ol> </p></div>',
             input: ' <a class="mg-lg btn btn-sq btn-block btn-flat panel-shadow btn-neon-carrot" onclick="window.uploadHexBtn(this, event);" href="#" value="' + hex_id + '" ><span class="fa fa-bolt icon-spacer"></span><b>INSTALL</b> <span class="fa fa-bolt icon-spacer"></span></a>'
         });
       }
