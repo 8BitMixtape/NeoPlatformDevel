@@ -38,10 +38,17 @@ notFoundMessage = "Record not found"
 							{{ record.description }}
 						</p>
 						
-              <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DOWNLOAD</button>
+              <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>SOURCE CODE</button>
 
+             {% if record.hex_file.path %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.hex_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>HEX</button>
+             {% endif %}
+
+             {% if record.wav_file.path %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>WAV</button>
+             {% endif %}
                     
-               {% if record.hex_file.path %}
+             {% if record.hex_file.path %}
                 <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
              {% else %}
                  {% if record.wav_file %}
