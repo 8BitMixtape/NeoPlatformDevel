@@ -18,6 +18,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\HttpFoundation\Session\Storage\NativeSessionStorage;
 use Zend\Stratigility\MiddlewareInterface;
 
 class StartSession implements MiddlewareInterface
@@ -54,9 +55,17 @@ class StartSession implements MiddlewareInterface
 
     private function startSession()
     {
-        $session = new Session;
 
-        $session->setName('flarum_session');
+        $options = array(
+            'cookie_domain' => '.8bitmixtape.cc',
+            'cookie_path' => '/my/cookie/path',
+        );
+
+
+
+        $session = new Session( new NativeSessionStorage($options));
+
+        $session->setName('flarum_sessions');
         $session->start();
 
         if (! $session->has('csrf_token')) {
