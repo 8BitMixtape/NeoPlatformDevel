@@ -27,11 +27,6 @@ class Flarum
             $token = $this->getToken($username, $password);
         }
 
-
-        print_r($token);
-        die();
-
-
         $this->setRememberMeCookie($token);
     }
 
