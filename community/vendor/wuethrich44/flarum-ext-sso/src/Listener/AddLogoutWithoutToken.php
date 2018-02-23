@@ -18,7 +18,7 @@ class AddLogoutWithoutToken
      */
     public function configureForumRoutes(ConfigureForumRoutes $event)
     { 
-        $event->get('/forcelogout', 'auth.forcelogout', 'Wuethrich44\SSO\Controller\ForcseLogoutController');
+        $event->get('/forcelogout', 'auth.forcelogout', 'Wuethrich44\SSO\Controller\ForceLogoutController');
     }
 
 
