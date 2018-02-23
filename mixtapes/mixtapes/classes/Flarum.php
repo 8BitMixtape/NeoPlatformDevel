@@ -79,7 +79,7 @@ class Flarum
         ];
 
         $response = $this->sendPostRequest('/api/users', $data);
-        print_r($response);
+        print_r($data);
         die();
         return isset($response['data']['id']);
     }
