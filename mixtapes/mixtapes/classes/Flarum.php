@@ -79,7 +79,8 @@ class Flarum
         ];
 
         $response = $this->sendPostRequest('/api/users', $data);
-
+        print_r($response);
+        die();
         return isset($response['data']['id']);
     }
 
@@ -98,7 +99,6 @@ class Flarum
             ]
         );
         $result = curl_exec($ch);
-        die($result);
         return json_decode($result, true);
     }
 
