@@ -99,6 +99,7 @@ class Flarum
             ]
         );
         $result = curl_exec($ch);
+        echo($result);
         return json_decode($result, true);
     }
 
