@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Forum\Controller;
+namespace Wuethrich44\SSO\Controller;
 
 use Flarum\Core\Access\AssertPermissionTrait;
 use Flarum\Event\UserLoggedOut;
