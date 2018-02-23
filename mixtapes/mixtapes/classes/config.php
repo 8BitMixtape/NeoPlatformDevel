@@ -17,7 +17,7 @@ if($_SERVER["HTTP_HOST"]=="localhost:8000"){
             // URL to your Flarum forum
             'flarum_url' => 'http://community.8bitmixtape.cc',
             // Domain of your main site (without http://)
-            'root_domain' => 'neo.8bitmixtape.cc',
+            'root_domain' => 'community.8bitmixtape.cc',
             // Create a random key in the api_keys table of your Flarum forum
             'flarum_api_key' => 'HGDHGShdgshdgshJGHbbsb56576GGggG',
             // Random token to create passwords
