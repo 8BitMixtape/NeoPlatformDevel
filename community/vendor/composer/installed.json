@@ -4587,6 +4587,55 @@
         ]
     },
     {
+        "name": "wuethrich44/flarum-ext-sso",
+        "version": "v1.1.2",
+        "version_normalized": "1.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/wuethrich44/flarum-ext-sso.git",
+            "reference": "cb484991a1c62fbf890f0e86c8e3cbb98845b3a4"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/wuethrich44/flarum-ext-sso/zipball/cb484991a1c62fbf890f0e86c8e3cbb98845b3a4",
+            "reference": "cb484991a1c62fbf890f0e86c8e3cbb98845b3a4",
+            "shasum": ""
+        },
+        "require": {
+            "flarum/core": "^0.1.0-beta.7"
+        },
+        "time": "2017-08-10T07:03:14+00:00",
+        "type": "flarum-extension",
+        "extra": {
+            "flarum-extension": {
+                "title": "Single Sign On",
+                "icon": {
+                    "name": "shield"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Wuethrich44\\SSO\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabian Wüthrich",
+                "email": "fabian.wuethrich@outlook.com"
+            }
+        ],
+        "description": "Single Sign On for Flarum",
+        "keywords": [
+            "Authentication"
+        ]
+    },
+    {
         "name": "zendframework/zend-diactoros",
         "version": "1.7.0",
         "version_normalized": "1.7.0.0",

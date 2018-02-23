@@ -2,7 +2,10 @@
     "name": "flarum/flarum",
     "description": "Delightfully simple forum software.",
     "type": "project",
-    "keywords": ["forum", "discussion"],
+    "keywords": [
+        "forum",
+        "discussion"
+    ],
     "homepage": "http://flarum.org",
     "license": "MIT",
     "authors": [
@@ -39,7 +42,8 @@
         "flarum/flarum-ext-sticky": "^0.1.0",
         "flarum/flarum-ext-subscriptions": "^0.1.0",
         "flarum/flarum-ext-suspend": "^0.1.0",
-        "flarum/flarum-ext-tags": "^0.1.0"
+        "flarum/flarum-ext-tags": "^0.1.0",
+        "wuethrich44/flarum-ext-sso": "^1.1"
     },
     "require-dev": {
         "franzl/studio": "^0.11.0"

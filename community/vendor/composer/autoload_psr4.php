@@ -10,6 +10,7 @@ return array(
     'Zend\\Stratigility\\' => array($vendorDir . '/zendframework/zend-stratigility/src'),
     'Zend\\Escaper\\' => array($vendorDir . '/zendframework/zend-escaper/src'),
     'Zend\\Diactoros\\' => array($vendorDir . '/zendframework/zend-diactoros/src'),
+    'Wuethrich44\\SSO\\' => array($vendorDir . '/wuethrich44/flarum-ext-sso/src'),
     'Whoops\\' => array($vendorDir . '/filp/whoops/src/Whoops'),
     'Tobscure\\JsonApi\\' => array($vendorDir . '/tobscure/json-api/src'),
     'Symfony\\Polyfill\\Mbstring\\' => array($vendorDir . '/symfony/polyfill-mbstring'),

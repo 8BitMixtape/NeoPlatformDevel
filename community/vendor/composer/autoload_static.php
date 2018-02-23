@@ -32,6 +32,7 @@ class ComposerStaticInit84b93253eecad1014a962ce61ac1f8ee
         ),
         'W' => 
         array (
+            'Wuethrich44\\SSO\\' => 16,
             'Whoops\\' => 7,
         ),
         'T' => 
@@ -147,6 +148,10 @@ class ComposerStaticInit84b93253eecad1014a962ce61ac1f8ee
         'Zend\\Diactoros\\' => 
         array (
             0 => __DIR__ . '/..' . '/zendframework/zend-diactoros/src',
+        ),
+        'Wuethrich44\\SSO\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/wuethrich44/flarum-ext-sso/src',
         ),
         'Whoops\\' => 
         array (
