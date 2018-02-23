@@ -3,6 +3,7 @@
 class Flarum
 {
     const REMEMBER_ME_KEY = 'flarum_remember';
+    const SESSION_KEY = 'flarum_session';
 
     private $config;
 
@@ -108,9 +109,12 @@ class Flarum
     }
 
     private function removeRememberMeCookie()
-    {
+    {        
+        unset($_COOKIE[self::SESSION_KEY]);        
         unset($_COOKIE[self::REMEMBER_ME_KEY]);
         $this->setCookie(self::REMEMBER_ME_KEY, '', time() - 10);
+        $this->setCookie(self::SESSION_KEY, '', time() - 10);
+
     }
 
     private function setCookie($key, $token, $time)
