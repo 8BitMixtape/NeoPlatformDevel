@@ -69,9 +69,9 @@ class ForceLogOutController implements ControllerInterface
     {
         $session = $request->getAttribute('session');
 
-        if (array_get($request->getQueryParams(), 'token') !== $session->get('csrf_token')) {
-            throw new TokenMismatchException;
-        }
+        // if (array_get($request->getQueryParams(), 'token') !== $session->get('csrf_token')) {
+        //     throw new TokenMismatchException;
+        // }
 
         $actor = $request->getAttribute('actor');
 
