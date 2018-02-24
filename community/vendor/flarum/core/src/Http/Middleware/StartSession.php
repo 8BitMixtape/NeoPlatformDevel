@@ -56,7 +56,7 @@ class StartSession implements MiddlewareInterface
     {
         $session = new Session;
 
-        $session->setName('flarum_session');
+        $session->setName('flarum_sessionx');
         $session->start();
 
         if (! $session->has('csrf_token')) {
