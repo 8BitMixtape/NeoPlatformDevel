@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Flarum\Http\Middleware;
+namespace Wuethrich44\SSO\Middleware;
 
 use Dflydev\FigCookies\FigResponseCookies;
 use Flarum\Http\CookieFactory;
