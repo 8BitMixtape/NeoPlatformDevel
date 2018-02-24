@@ -3,6 +3,8 @@ import app from "flarum/app";
 import HeaderSecondary from "flarum/components/HeaderSecondary";
 import SettingsPage from "flarum/components/SettingsPage";
 import LogInModal from "flarum/components/LogInModal";
+import SessionDropdown from "flarum/components/SessionDropdown";
+import Button from "flarum/components/Button";
 
 app.initializers.add('wuethrich44-sso', function () {
     override(LogInModal.prototype, 'init', redirectWhenLoginModalIsOpened);
@@ -12,6 +14,19 @@ app.initializers.add('wuethrich44-sso', function () {
 
     extend(SettingsPage.prototype, 'accountItems', removeProfileActions);
     extend(SettingsPage.prototype, 'settingsItems', checkRemoveAccountSection);
+
+    extend(SessionDropdown.prototype, 'items', function(items){
+        if (!items.has('logOut')) {
+            return;
+        }
+
+        items.replace('logOut',
+            <a href="http://neo.8bitmixtape.cc/logout" class=" hasIcon" type="button" title="Log Out"><i class="icon fa fa-sign-out Button-icon"></i>
+                <span class="Button-label">Log Out</span>
+            </a>
+        );
+
+    });
 
     function redirectWhenLoginModalIsOpened() {
         window.location.href = app.forum.data.attributes['wuethrich44-sso.login_url'];

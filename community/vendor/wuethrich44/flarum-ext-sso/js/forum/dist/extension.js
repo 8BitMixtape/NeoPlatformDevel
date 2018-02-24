@@ -1,7 +1,7 @@
-System.register("wuethrich44/sso/main", ["flarum/extend", "flarum/app", "flarum/components/HeaderSecondary", "flarum/components/SettingsPage", "flarum/components/LogInModal"], function (_export) {
+System.register("wuethrich44/sso/main", ["flarum/extend", "flarum/app", "flarum/components/HeaderSecondary", "flarum/components/SettingsPage", "flarum/components/LogInModal", "flarum/components/SessionDropdown", "flarum/components/Button"], function (_export) {
     "use strict";
 
-    var extend, override, app, HeaderSecondary, SettingsPage, LogInModal;
+    var extend, override, app, HeaderSecondary, SettingsPage, LogInModal, SessionDropdown, Button;
     return {
         setters: [function (_flarumExtend) {
             extend = _flarumExtend.extend;
@@ -14,6 +14,10 @@ System.register("wuethrich44/sso/main", ["flarum/extend", "flarum/app", "flarum/
             SettingsPage = _flarumComponentsSettingsPage["default"];
         }, function (_flarumComponentsLogInModal) {
             LogInModal = _flarumComponentsLogInModal["default"];
+        }, function (_flarumComponentsSessionDropdown) {
+            SessionDropdown = _flarumComponentsSessionDropdown["default"];
+        }, function (_flarumComponentsButton) {
+            Button = _flarumComponentsButton["default"];
         }],
         execute: function () {
 
@@ -25,6 +29,23 @@ System.register("wuethrich44/sso/main", ["flarum/extend", "flarum/app", "flarum/
 
                 extend(SettingsPage.prototype, 'accountItems', removeProfileActions);
                 extend(SettingsPage.prototype, 'settingsItems', checkRemoveAccountSection);
+
+                extend(SessionDropdown.prototype, 'items', function (items) {
+                    if (!items.has('logOut')) {
+                        return;
+                    }
+
+                    items.replace('logOut', m(
+                        "a",
+                        { href: "http://neo.8bitmixtape.cc/logout", "class": " hasIcon", type: "button", title: "Log Out" },
+                        m("i", { "class": "icon fa fa-sign-out Button-icon" }),
+                        m(
+                            "span",
+                            { "class": "Button-label" },
+                            "Log Out"
+                        )
+                    ));
+                });
 
                 function redirectWhenLoginModalIsOpened() {
                     window.location.href = app.forum.data.attributes['wuethrich44-sso.login_url'];
