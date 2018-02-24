@@ -60,9 +60,14 @@ class StartSession implements MiddlewareInterface
             'cookie_domain' => '.8bitmixtape.cc',
         );
 
-        $session = new Session( new NativeSessionStorage($options));
 
-        $session->setName('flarum_sessionxx');
+        $session_storage = new NativeSessionStorage($options);
+        $session_storage->setOptions($options);
+
+        $session = new Session( $session_storage );
+
+
+        $session->setName('flarum_session');
         $session->start();
 
         if (! $session->has('csrf_token')) {
