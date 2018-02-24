@@ -24,28 +24,63 @@ function onInit(){
 {% partial "header" %}
 
 <!-- bloc-7 -->
-<div class="bloc bgc-white l-bloc" id="bloc-7">
-	<div class="container bloc-sm sm-padding">
+<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
+	<div class="container bloc-lg sm-padding">
 		<div class="row voffset">
 			<div class="col-sm-12 col-md-6 col-md-offset-3">
             <!-- content -->
             
             {% if not user %}
             
+
+
                 <div class="row">
 
+
                     <div class="col-md-6">
-                        <h3>Sign in</h3>
+                                <!-- panel -->
+            <div class="panel panel-shadow">
+					<div class="panel-heading">
+						<h3 class="mg-clear">
+							Sign in
+						</h3>
+					</div>
+            
+			<div class="panel-body">
+			
                         {% partial account ~ '::signin' %}
+                        
+                                    </div>
+            </div>
+            <!-- end panel -->
+            
                     </div>
             
                     <div class="col-md-6">
-                        <h3>Register</h3>
+                    
+                                <!-- panel -->
+            <div class="panel panel-shadow">
+					<div class="panel-heading">
+						<h3 class="mg-clear">
+							Register
+						</h3>
+					</div>
+					
+			<div class="panel-body">                    
+
                         {% partial account ~ '::register' %}
+                        
+                        
+                                                            </div>
+            </div>
+            <!-- end panel -->
+                        
                     </div>
             
                 </div>
-            
+                
+
+
             {% else %}
                     
 
