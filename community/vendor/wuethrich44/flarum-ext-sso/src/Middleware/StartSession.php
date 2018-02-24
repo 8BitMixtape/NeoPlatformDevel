@@ -90,7 +90,7 @@ class StartSession implements MiddlewareInterface
     {
         return FigResponseCookies::set(
             $response,
-            $this->cookie->make($session->getName(), $session->getId())
+            $this->cookie->make($session->getName(), $session->getId())->withDomain('.8bitmixtape.cc')
         );
     }
 }
