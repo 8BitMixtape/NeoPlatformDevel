@@ -15,7 +15,7 @@ if($_SERVER["HTTP_HOST"]=="localhost:8000"){
     }else{
         return [
             // URL to your Flarum forum
-            'flarum_url' => 'http://community.8bitmixtape.cc',
+            'flarum_url' => 'https://community.8bitmixtape.cc',
             // Domain of your main site (without http://)
             'root_domain' => '8bitmixtape.cc',
             // Create a random key in the api_keys table of your Flarum forum
