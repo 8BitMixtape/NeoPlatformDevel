@@ -8,6 +8,6 @@ return function (Dispatcher $events) {
     $events->subscribe(Listener\AddLogoutRedirect::class);
     $events->subscribe(Listener\ActivateUser::class);
     $events->subscribe(Listener\LoadSettingsFromDatabase::class);
-    $events->subscribe(Listener\AddLogoutWithoutToken::class);
+    // $events->subscribe(Listener\AddLogoutWithoutToken::class);
     $events->subscribe(Listener\AlterMiddlewareSession::class);
 };
