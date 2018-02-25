@@ -145,13 +145,13 @@ class Flarum
         ];
 
 
-        die(json_encode($payload));
+        // die(json_encode($payload));
         
         $res = $this->sendPatchRequestToken(
-            "/api/discussions/" . $id, $payload
+            "/api/posts/" . $id, $payload
         );
 
-        dd($res);
+        // dd($res);
 
         return isset($res['data']['id']) ? $res['data']['id'] : 0;
 
