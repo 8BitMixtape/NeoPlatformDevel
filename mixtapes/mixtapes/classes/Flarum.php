@@ -147,7 +147,7 @@ class Flarum
 
         // die(json_encode($payload));
         
-        $res = $this->sendPatchRequestToken(
+        $res = $this->sendPostRequestToken(
             "/api/posts/" . $id, $payload
         );
 
