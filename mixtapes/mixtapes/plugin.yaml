@@ -9,3 +9,8 @@ navigation:
         label: Mixtapes
         url: mixtapes/mixtapes/mixtapes
         icon: icon-birthday-cake
+        sideMenu:
+            side-menu-item:
+                label: Settings
+                url: mixtapes/mixtapes/settings
+                icon: icon-sitemap
