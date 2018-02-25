@@ -84,8 +84,18 @@ class Flarum
         $res = $this->sendPostRequestToken(
             "/api/discussions", $payload
         );
+        
+        
+        if ( isset($res['data']['id']) )
+        {
+            $discus_id = isset($res['data']['id']) ? $res['data']['id'] : 0;
+            $post_id = $res['data']['relationships']['posts']['data'][0]; 
+            return ['discuss_id' => $discus_id , 'post_id' => $post_id];
+        }else{
+            return 0;
+        }
 
-        return isset($res['data']['id']) ? $res['data']['id'] : 0;
+        
 
     }
 
@@ -147,7 +157,7 @@ class Flarum
 
         // die(json_encode($payload));
         
-        $res = $this->sendPostRequestToken(
+        $res = $this->sendPatchRequestToken(
             "/api/posts/" . $id, $payload
         );
 

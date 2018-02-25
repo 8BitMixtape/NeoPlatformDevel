@@ -112,13 +112,18 @@ class MixtapeUpload extends ComponentBase
         $flarum = new Flarum();
         $mixtape_url = url('/mixtape/detail',$mixtape->id);
         $flarum_msg = 'Synth name: ' . Input::get('name') . '\nUrl: ' . $mixtape_url . '\nDescription: \n\n\n\n' . Input::get('description');
-        $flarum_id = $flarum->createDiscussion($user->username, '[mixtape] ' . Input::get('name'), $flarum_msg);
+        $flarum_res_arr = $flarum->createDiscussion($user->username, '[mixtape] ' . Input::get('name'), $flarum_msg);
 
+
+        $flarum_id = $flarum_res_arr['discuss_id'];
+        $flarum_post_id = $flarum_res_arr['post_id'];
+        
         $mixtape->name = Input::get('name');
         $mixtape->description = Input::get('description');        
         $mixtape->user_id = $user->id;
         $mixtape->zip_file = $hex_file;
         $mixtape->flarum_id = $flarum_id;
+        $mixtape->flarum_post_id = $flarum_post_id;
 
         $success = $mixtape->save();
 

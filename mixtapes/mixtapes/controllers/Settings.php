@@ -27,10 +27,16 @@ class Settings extends Controller
         foreach ($mixtapes as $mixtape) {
            $mixtape_url = url('/mixtape/detail',$mixtape->id);
            $flarum_msg = "Synth name: " . $mixtape->name . "\nUrl: " . $mixtape_url . "\nDescription: \n\n\n\n" . ($mixtape->description);
-           $flarum_id = $flarum->createDiscussion($mixtape->user->username, '[mixtape] ' . $mixtape->name, $flarum_msg);
+           $flarum_res_arr = $flarum->createDiscussion($mixtape->user->username, '[mixtape] ' . $mixtape->name, $flarum_msg);
+
+           $flarum_id =  $flarum_res_arr['discuss_id'];
+           $flarum_post_id =  $flarum_res_arr['post_id'];
+           
+
            if ($flarum_id > 0)
            {
             $mixtape->flarum_id = $flarum_id;
+            $mixtape->flarum_post_id = $flarum_post_id;            
             $mixtape->save();
            }
            sleep(10);

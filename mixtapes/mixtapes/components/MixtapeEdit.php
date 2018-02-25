@@ -141,7 +141,7 @@ class MixtapeEdit extends ComponentBase
         $flarum = new Flarum();
 
         $flarum_id = $flarum->renameDiscussion($user->username, $mixtape->flarum_id, '[mixtape] ' . Input::get('name'));
-        $flarum_id = $flarum->updateDiscussionMsg($user->username, $mixtape->flarum_id, Input::get('description'));
+        $flarum_id = $flarum->updateDiscussionMsg($user->username, $mixtape->flarum_post_id, Input::get('description'));
 
 
         Flash::success('Mixtape edited!');
