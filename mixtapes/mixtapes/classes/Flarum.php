@@ -123,6 +123,38 @@ class Flarum
 
     }
 
+
+    public function updateDiscussionMsg($username, $id, $new_msg)
+    {
+        $password = $this->createPassword($username);
+
+        if(!$this->token) {
+            $this->token = $this->getToken($username, $password);
+        }
+        
+        //{"data":{"type":"posts","id":"66","attributes":{"content":"Synth name: NEO Rainbow Speed Control\nUrl: https://neo.8bitmixtape.cc/mixtape/detail/27\nDescription: \n\n\n\nNYANCAT Rainbow, based on ChrisMicro Testcomponent advanced (edit)"}}}
+
+        $payload = [
+            'data' => [
+                'type' => 'post',
+                'id' => $id,
+                'attributes' => [
+                    'content' => $new_msg
+                ]
+            ]
+        ];
+
+
+        // die(json_encode($payload));
+        
+        $res = $this->sendPatchRequestToken(
+            "/api/discussions/" . $id, $payload
+        );
+
+        return isset($res['data']['id']) ? $res['data']['id'] : 0;
+
+    }
+
     private function createPassword($username)
     {
         return hash('sha256', $username . $this->config['password_token']);
