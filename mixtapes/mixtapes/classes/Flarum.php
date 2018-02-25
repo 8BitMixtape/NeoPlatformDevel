@@ -6,6 +6,7 @@ class Flarum
     const SESSION_KEY = 'flarum_session';
 
     private $config;
+    private $token;
 
     public function __construct()
     {
@@ -21,14 +22,14 @@ class Flarum
     public function login($username, $email)
     {
         $password = $this->createPassword($username);
-        $token = $this->getToken($username, $password);
+        $this->token = $this->getToken($username, $password);
 
         if (empty($token)) {
             $this->signup($username, $password, $email);
-            $token = $this->getToken($username, $password);
+            $this->token = $this->getToken($username, $password);
         }
 
-        $this->setRememberMeCookie($token);
+        $this->setRememberMeCookie($this->token);
     }
 
     /**
@@ -49,11 +50,19 @@ class Flarum
     }
 
 
-    public function createDiscussion($title, $content, $tags_id = 1)
+    public function createDiscussion($username, $title, $content, $tags_id = 1)
     {
-        sendPostRequest(
-            "/api/discussions", '{"data":{"type":"discussions","attributes":{"title":"$title","content":"$content"},"relationships":{"tags":{"data":[{"type":"tags","id":"$tags_id"}]}}}}'
+        $password = $this->createPassword($username);
+        $this->token = $this->getToken($username, $password);
+        
+        $payload = '{"data":{"type":"discussions","attributes":{"title":"' . $title . '","content":"' . $content . '"},"relationships":{"tags":{"data":[{"type":"tags","id":"' . $tags_id . '"}]}}}}';
+
+        $res = $this->sendPostRequestToken(
+            "/api/discussions", $payload
         );
+
+        return isset($res['data']['id']) ? $res['data']['id'] : 0;
+
     }
 
     private function createPassword($username)
@@ -92,6 +101,26 @@ class Flarum
         return isset($response['data']['id']);
     }
 
+    private function sendPostRequestToken($path, $data)
+    {
+        $data_string = ($data);
+
+        $ch = curl_init($this->config['flarum_url'] . $path);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string),
+                'Authorization: Token ' . $this->token
+            ]
+        );
+        $result = curl_exec($ch);
+
+        return json_decode($result, true);
+    }
+
+
     private function sendPostRequest($path, $data)
     {
         $data_string = json_encode($data);
@@ -107,7 +136,7 @@ class Flarum
             ]
         );
         $result = curl_exec($ch);
-
+        
         return json_decode($result, true);
     }
 
