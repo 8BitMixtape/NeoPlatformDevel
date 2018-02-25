@@ -89,7 +89,7 @@ class Flarum
         if ( isset($res['data']['id']) )
         {
             $discus_id = isset($res['data']['id']) ? $res['data']['id'] : 0;
-            $post_id = $res['data']['relationships']['posts']['data'][0]; 
+            $post_id = $res['data']['relationships']['posts']['data'][0]['id']; 
             return ['discuss_id' => $discus_id , 'post_id' => $post_id];
         }else{
             return 0;
