@@ -151,6 +151,8 @@ class Flarum
             "/api/discussions/" . $id, $payload
         );
 
+        dd($res);
+
         return isset($res['data']['id']) ? $res['data']['id'] : 0;
 
     }
