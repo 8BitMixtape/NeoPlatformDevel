@@ -48,6 +48,14 @@ class Flarum
         die();
     }
 
+
+    public function createDiscussion($title, $content, $tags_id = 1)
+    {
+        sendPostRequest(
+            "/api/discussions", '{"data":{"type":"discussions","attributes":{"title":"$title","content":"$content"},"relationships":{"tags":{"data":[{"type":"tags","id":"$tags_id"}]}}}}'
+        );
+    }
+
     private function createPassword($username)
     {
         return hash('sha256', $username . $this->config['password_token']);
