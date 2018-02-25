@@ -50,7 +50,7 @@ class Flarum
     }
 
 
-    public function createDiscussion($username, $title, $content, $tags_id = 1)
+    public function createDiscussion($username, $title, $content, $tags_id = 2)
     {
         $password = $this->createPassword($username);
 
