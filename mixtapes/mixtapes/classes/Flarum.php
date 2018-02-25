@@ -67,8 +67,8 @@ class Flarum
                 'relationships' => [
                     'tags' => [
                         'data' => [
-                            'type' => 'tags',
-                            'id' => "$tags_id"
+                            ['type' => 'tags',
+                            'id' => "$tags_id"]
                         ]
                     ]
                 ]
