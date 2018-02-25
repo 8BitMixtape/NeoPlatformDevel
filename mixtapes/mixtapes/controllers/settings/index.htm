@@ -1,0 +1,20 @@
+<?= Block::put('head') ?><?= Block::endPut() ?>
+
+<?= Block::put('body') ?>
+    <?php if (!$this->fatalError): ?>
+
+    <button
+    type="button"
+    data-request="onDoSomething"
+    class="btn btn-default"
+    data-request-update="mypartial: '#myDiv'">
+    Sync Mixtape to Forum
+</button>
+
+
+<div id="myDiv"></div>
+
+    <?php else: ?>
+        <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <?php endif ?>
+<?= Block::endPut() ?>
