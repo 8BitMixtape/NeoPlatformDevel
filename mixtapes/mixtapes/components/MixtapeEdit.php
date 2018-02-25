@@ -11,6 +11,7 @@ use Request;
 use ValidationException;
 
 use Mixtapes\Mixtapes\Models\Mixtape;
+use Mixtapes\Mixtapes\Classes\Flarum;
 
 
 class MixtapeEdit extends ComponentBase
@@ -136,6 +137,11 @@ class MixtapeEdit extends ComponentBase
         $mixtape->description = Input::get('description');
         $mixtape->zip_file = $hex_file;
         $mixtape->save();
+
+        $flarum = new Flarum();
+
+        $flarum_id = $flarum->renameDiscussion($user->username, $mixtape->id, '[mixtape] ' . Input::get('name'));
+
 
         Flash::success('Mixtape edited!');
 

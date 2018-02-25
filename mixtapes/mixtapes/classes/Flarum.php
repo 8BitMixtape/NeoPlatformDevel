@@ -53,7 +53,10 @@ class Flarum
     public function createDiscussion($username, $title, $content, $tags_id = 1)
     {
         $password = $this->createPassword($username);
-        $this->token = $this->getToken($username, $password);
+
+        if(!$this->token) {
+            $this->token = $this->getToken($username, $password);
+        }
         
         //$payload = '{"data":{"type":"discussions","attributes":{"title":"' . $title . '","content":"' . $content . '"},"relationships":{"tags":{"data":[{"type":"tags","id":"' . $tags_id . '"}]}}}}';
                     
@@ -80,6 +83,40 @@ class Flarum
         
         $res = $this->sendPostRequestToken(
             "/api/discussions", $payload
+        );
+
+        return isset($res['data']['id']) ? $res['data']['id'] : 0;
+
+    }
+
+
+
+
+    public function renameDiscussion($username, $id, $new_title)
+    {
+        $password = $this->createPassword($username);
+
+        if(!$this->token) {
+            $this->token = $this->getToken($username, $password);
+        }
+        
+        //{"data":{"type":"discussions","id":"56","attributes":{"title":"[mixtape] Mini Synth Neopixel Updated v0"}}}
+
+        $payload = [
+            'data' => [
+                'type' => 'discussions',
+                'id' => $id,
+                'attributes' => [
+                    'title' => $new_title
+                ]
+            ]
+        ];
+
+
+        // die(json_encode($payload));
+        
+        $res = $this->sendPatchRequestToken(
+            "/api/discussions/" . $id, $payload
         );
 
         return isset($res['data']['id']) ? $res['data']['id'] : 0;
@@ -120,6 +157,26 @@ class Flarum
         $response = $this->sendPostRequest('/api/users', $data);
 
         return isset($response['data']['id']);
+    }
+
+    private function sendPatchRequestToken($path, $data)
+    {
+        $data_string = json_encode($data);
+
+        $ch = curl_init($this->config['flarum_url'] . $path);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Content-Type: application/json',
+                'Content-Length: ' . strlen($data_string),
+                'Authorization: Token ' . $this->token,
+                'X-HTTP-Method-Override: PATCH'
+            ]
+        );
+        $result = curl_exec($ch);
+
+        return json_decode($result, true);
     }
 
     private function sendPostRequestToken($path, $data)
