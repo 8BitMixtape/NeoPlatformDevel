@@ -55,6 +55,14 @@ notFoundMessage = "Record not found"
                 <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
                  {% endif %}            
              {% endif %}
+             
+             
+             {% if record.flarum_id %}
+             
+                <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot"  href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DISCUSS</a>
+
+             
+             {% endif %}
 
 					</div>
 				</div>
