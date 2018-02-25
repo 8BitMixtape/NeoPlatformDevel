@@ -55,8 +55,29 @@ class Flarum
         $password = $this->createPassword($username);
         $this->token = $this->getToken($username, $password);
         
-        $payload = '{"data":{"type":"discussions","attributes":{"title":"' . $title . '","content":"' . $content . '"},"relationships":{"tags":{"data":[{"type":"tags","id":"' . $tags_id . '"}]}}}}';
+        //$payload = '{"data":{"type":"discussions","attributes":{"title":"' . $title . '","content":"' . $content . '"},"relationships":{"tags":{"data":[{"type":"tags","id":"' . $tags_id . '"}]}}}}';
+                    
+        $payload = [
+            'data' => [
+                'type' => 'discussions',
+                'attributes' => [
+                    'title' => $title,
+                    'content' => $content
+                ],
+                'relationships' => [
+                    'tags' => [
+                        'data' => [
+                            'type' => 'tags',
+                            'id' => "$tags_id"
+                        ]
+                    ]
+                ]
+            ]
+        ];
 
+
+        // die(json_encode($payload));
+        
         $res = $this->sendPostRequestToken(
             "/api/discussions", $payload
         );
@@ -103,7 +124,7 @@ class Flarum
 
     private function sendPostRequestToken($path, $data)
     {
-        $data_string = ($data);
+        $data_string = json_encode($data);
 
         $ch = curl_init($this->config['flarum_url'] . $path);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
