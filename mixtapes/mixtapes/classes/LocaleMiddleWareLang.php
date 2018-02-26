@@ -5,7 +5,7 @@ use Closure;
 use Config;
 use Session;
 
-class LocaleMiddleware
+class LocaleMiddleWareLang
 {
     /**
      * Handle an incoming request.
