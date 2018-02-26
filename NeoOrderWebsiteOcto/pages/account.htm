@@ -9,8 +9,6 @@ security = "all"
 [Esroyo\UserProfile\Components\Account account2]
 paramCode = "code"
 forceSecure = 0
-
-[sociallogin]
 ==
 <?php
 function onInit(){
@@ -51,7 +49,7 @@ function onInit(){
 			<div class="panel-body">
 			
                         {% partial account ~ '::signin' %}
-                        {% component 'sociallogin' %}
+                        
                                     </div>
             </div>
             <!-- end panel -->
