@@ -2,6 +2,7 @@
 
 use System\Classes\PluginBase;
 use Mixtapes\Mixtapes\Classes\Flarum;
+use Mixtapes\Mixtapes\Classes\LocaleMiddleware;
 
 use Event;
 use Input;
@@ -26,7 +27,7 @@ class Plugin extends PluginBase
          * Look at session for locale using middleware
          */
         \Cms\Classes\CmsController::extend(function($controller) {
-            $controller->middleware(Classes\LocaleMiddleware::class);
+            $controller->middleware(\Mixtapes\Mixtapes\Classes\LocaleMiddleware::class);
         });
     }
 
