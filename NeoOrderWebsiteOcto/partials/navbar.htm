@@ -32,7 +32,11 @@ accountPage = "account"
 						<a href="https://community.8bitmixtape.cc" target="_blank" class="ltc-tangerine-yellow fontforward tracked-mega">COMMUNITY</a>
 					</li>
 					<li>
+					    {% if (activeLocale == 'id') %}
 						<a href="{{ 'home'|page }}" class="ltc-tangerine-yellow fontforward tracked-mega">BUY</a>
+						{% else %}
+						<a href="http://wiki.8bitmixtape.cc/#/XXX-Shop" class="ltc-tangerine-yellow fontforward tracked-mega">BUY</a>		
+						{% endif %}
 					</li>
 
 
