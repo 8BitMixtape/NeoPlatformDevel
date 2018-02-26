@@ -21,6 +21,13 @@ class Plugin extends PluginBase
             $flarum = new Flarum();
             $flarum->logout();
         });
+
+                /*
+         * Look at session for locale using middleware
+         */
+        \Cms\Classes\CmsController::extend(function($controller) {
+            $controller->middleware(\Mixtapes\Mixtapes\Classes\LocaleMiddleware::class);
+        });
     }
 
     public function registerComponents()
