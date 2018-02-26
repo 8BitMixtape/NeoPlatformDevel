@@ -2,7 +2,6 @@
 
 use RainLab\Translate\Classes\Translator;
 use Closure;
-use Config;
 use Session;
 
 class LocaleMiddleWareLang
