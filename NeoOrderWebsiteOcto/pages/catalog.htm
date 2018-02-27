@@ -35,7 +35,7 @@ last_button_limit = 1
 {% set obProductList = ProductList.make().active() %}
 
 <!-- start wrap -->
-<div class="bloc bgc-tangerine-yellow d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
+<div class="bloc bgc-neon-green d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
     <div class="container bloc-md masonry-padding">
 
     
@@ -49,7 +49,7 @@ last_button_limit = 1
     
 
 <div class="col-sm-4">
-				<div class="panel panel-shadow bgc-columbia-blue">
+				<div class="panel panel-shadow bgc-blue-violet">
 					<div class="panel-heading  bgc-blue-violet ">
 						<h3 class="mg-sm text-center tc-white fontforward ">
 					{{ obProduct.name }}
@@ -102,7 +102,8 @@ var data = {
 
 //Send ajax request and update cart items
 $.request('Cart::onAdd', {
-    'data': data
+    'data': data,
+    'redirect' : '{{ 'cart'|page }}'
 });
 
 }

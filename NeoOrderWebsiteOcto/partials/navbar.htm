@@ -34,14 +34,22 @@ forceUrl = 0
 					<li>
 						<a href="https://community.8bitmixtape.cc" target="_blank" class="ltc-tangerine-yellow fontforward tracked-mega">COMMUNITY</a>
 					</li>
-					<li>
-					    {% if (activeLocale == 'id') %}
-						<a href="{{ 'home'|page }}" class="ltc-tangerine-yellow fontforward tracked-mega">BUY</a>
-						{% else %}
-						<a href="http://wiki.8bitmixtape.cc/#/XXX-Shop" class="ltc-tangerine-yellow fontforward tracked-mega">BUY</a>		
-						{% endif %}
-					</li>
-
+					
+                    <!-- dropdown -->
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle ltc-tangerine-yellow fontforward tracked-mega" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">BUY</a>
+                      <ul class="dropdown-menu">
+                        {% if (activeLocale == 'id') %}
+                        <li><a href="{{ 'catalog'|page }}">Catalog</a></li>
+                        <li><a href="{{ 'cart'|page }}">Shopping Cart</a></li>   
+                        {% else %}
+                        <li><a href="{{ 'cart'|page }}" >Catalog</a></li>   
+                        {% endif %}
+                      </ul>
+                    </li>
+					<!-- dropdown -->
+					
+					
 
                     
     {% if user %}

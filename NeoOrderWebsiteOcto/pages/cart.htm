@@ -57,12 +57,12 @@ redirect_page = "catalog"
 {% if obCartElementList.isNotEmpty() %}
 
 <div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
-<div class="container bloc-lg sm-padding">
+<div class="container bloc-md sm-padding">
 <div class="row">
 <div class="col-sm-12">
 
 <!-- panel -->
-<div class="panel bgc-columbia-blue panel-shadow"> 
+<div class="panel bgc-white panel-product-shadow"> 
 					<div class="panel-heading bgc-raspberry-pink">
 						<h3 class="mg-clear tc-white">
 							 Shopping Cart
@@ -94,11 +94,11 @@ redirect_page = "catalog"
 									</div>
 								</div>
 							</td>
-							<td data-th="Price">{{ obOffer.price }} </td>
+							<td data-th="Price">{{ obOffer.price|number_format(0, '.', '.') }}</td>
 							<td data-th="Quantity">
 								<input type="number" class="form-control text-center" value="{{ obCartElement.quantity }}">
 							</td>
-							<td data-th="Subtotal" class="text-center">{{ obCartElement.price }} </td>
+							<td data-th="Subtotal" class="text-center">{{ obCartElement.price |number_format(0, '.', '.')}} </td>
 							<td class="actions" data-th="">
 								<button class="btn  btn-sm"><i class="fa fa-refresh"></i></button>
 								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
@@ -111,11 +111,11 @@ redirect_page = "catalog"
 <!-- end cart table -->
 </div><!-- end panel body -->
 
-                    <div class="panel-footer">
+                    <div class="panel-footer bgc-neon-green ">
                     
                     						<h3 class="mg-clear text-center tc-black">
 
-                    Order Total: {{ obCartElementList.getTotalPrice() }}						</h3>
+                    Order Total: {{ obCartElementList.getTotalPrice()|number_format(0, '.', '.')  }}						</h3>
 
                     </div>
 
@@ -195,7 +195,7 @@ redirect_page = "catalog"
 			    				</div>
 			    			</div>
 			    			
-			    			<input type="submit" value="Order" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">
+			    			<input type="submit" value="Confirm Order" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">
 			    		
 			    		</form>
 			    	</div>

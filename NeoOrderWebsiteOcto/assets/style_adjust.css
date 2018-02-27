@@ -231,3 +231,42 @@ div.social-links{
         padding: 10px !important;
     }
 }
+
+.panel-product-body {
+     height: 110px;
+}
+
+.form-control::-moz-placeholder {
+    color: #4d4d4d !important;
+    opacity: 1;
+}
+
+.bgc-purple-blue {
+  background-color: #7E25EC;
+  color: #fff;
+}
+
+.panel-product-shadow {
+  box-shadow: 4px 5px 0px #7C32D7;
+}
+
+.panel-product-body {
+    color: #fff
+}
+
+.bgc-neon-green {
+    background-color: #00FF5D;
+}
+
+::after, ::before {
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+}
+
+
+.bgc-neon-green {
+  background-color: #7DD84E;
+}
