@@ -30,9 +30,27 @@ last_button_name = "Last"
 last_button_limit = 1
 
 [Cart]
+
+[localePicker]
+forceUrl = 0
 ==
 {% partial 'header' %}
-{% set obProductList = ProductList.make().active() %}
+
+{% if (activeLocale == 'id') %}
+{% set obProductList = ProductList.make().active().category(1) %}
+{% else %}
+{% set obProductList = ProductList.make().active().category(2) %}
+{% endif %}
+
+<div id="bloc-7" class="bloc bgc-purple-x111 d-bloc " style="background-color: #0cb41a;">
+	<div class="container bloc-sm">
+		<div class="row">
+			<div class="col-sm-12 text-center">
+				<h4>Displaying <b>Swiss Store</b> Catalog, Customer outside of Indonesia please use <b>Swiss Store</b>, Customer from Indonesia use <b>Indonesia Store</b></h4> 
+			</div>
+		</div>
+	</div>
+</div>
 
 <!-- start wrap -->
 <div class="bloc bgc-neon-green d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
@@ -64,7 +82,7 @@ last_button_limit = 1
     </div>
     					<div class="panel-body panel-product-body">
 
-                                     {{ html_limit(obProduct.description, 150)|raw }}                     	
+                                     {{ html_limit(obProduct.description, 100)|raw }}                     	
 
                 
 					</div>
@@ -73,7 +91,7 @@ last_button_limit = 1
 					
 					
 					
-    <button type="submit" class="btn btn-phlox btn-d btn-lg btn-block" onClick="addCart({{obOffer.id}})" >Add to Cart</button>
+    <button type="submit" class="btn btn-phlox btn-d btn-lg btn-block" onClick="addCart({{obOffer.id}})" >{{obOffer.price|number_format(0, '.', '.')}} - Buy</button>
 					
 					
 					</div>

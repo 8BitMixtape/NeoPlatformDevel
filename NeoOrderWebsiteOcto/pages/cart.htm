@@ -56,7 +56,7 @@ redirect_page = "catalog"
 {% set obCartElementList = Cart.get() %}
 {% if obCartElementList.isNotEmpty() %}
 
-<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
+<div class="bloc bgc-neon-green l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
 <div class="container bloc-md sm-padding">
 <div class="row">
 <div class="col-sm-12">
@@ -88,9 +88,10 @@ redirect_page = "catalog"
 						<tr>
 							<td data-th="Product">
 								<div class="row">
-									<div class="col-sm-2 hidden-xs"><img src="{{ obProduct.preview_image.getThumb(250, 330) }}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-2 hidden-xs"><img src="{{ obProduct.preview_image.getThumb(250, 330) }}" alt="..." class="img-circle img-thumbnail img-responsive"/></div>
 									<div class="col-sm-10">
 										<h4 class="nomargin">{{ obOffer.product.name }}</h4>
+										<p> {{ html_limit(obOffer.product.description, 60)|raw }}	</p>
 									</div>
 								</div>
 							</td>
@@ -99,9 +100,8 @@ redirect_page = "catalog"
 								<input type="number" class="form-control text-center" value="{{ obCartElement.quantity }}">
 							</td>
 							<td data-th="Subtotal" class="text-center">{{ obCartElement.price |number_format(0, '.', '.')}} </td>
-							<td class="actions" data-th="">
-								<button class="btn  btn-sm"><i class="fa fa-refresh"></i></button>
-								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							<td class="actions text-left" data-th="">
+								<button class="btn  btn-sm" onClick="removeCart({{obOffer.id}})"><i class="fa fa-trash-o"></i></button>								
 							</td>
 						</tr>
 						{% endfor %}
@@ -111,11 +111,11 @@ redirect_page = "catalog"
 <!-- end cart table -->
 </div><!-- end panel body -->
 
-                    <div class="panel-footer bgc-neon-green ">
+                    <div class="panel-footer  panel-order-total ">
                     
-                    						<h3 class="mg-clear text-center tc-black">
+                    						<h4 class="mg-clear text-center bloc-xs tc-black">
 
-                    Order Total: {{ obCartElementList.getTotalPrice()|number_format(0, '.', '.')  }}						</h3>
+                    Order Total: {{ obCartElementList.getTotalPrice()|number_format(0, '.', '.')  }}						</h4>
 
                     </div>
 
@@ -133,12 +133,12 @@ redirect_page = "catalog"
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			                <input type="text" name="user[name]" id="first_name" class="form-control input-sm" placeholder="First Name">
+			                <input type="text" name="user[name]" id="first_name" class="form-control input-lg" placeholder="First Name">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="text" name="order[property][last_name]" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    						<input type="text" name="order[property][last_name]" id="last_name" class="form-control input-lg" placeholder="Last Name">
 			    					</div>
 			    				</div>
 			    			</div>
@@ -146,7 +146,7 @@ redirect_page = "catalog"
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="email" name="user[email]" id="email" class="form-control input-sm" placeholder="Email">
+			    						<input type="email" name="user[email]" id="email" class="form-control input-lg" placeholder="Email">
 			    						  {% if arError.message is not empty and arError.field == 'email' %}
                                             <p>{{ arError.message }}</p>
                                           {% endif %}
@@ -155,7 +155,7 @@ redirect_page = "catalog"
 			    				
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="phone" name="order[property][phone]" id="phone" class="form-control input-sm" placeholder="Phone">
+			    						<input type="phone" name="order[property][phone]" id="phone" class="form-control input-lg" placeholder="Phone">
 			    					</div>
 			    				</div>
 			    				
@@ -185,15 +185,44 @@ redirect_page = "catalog"
 			    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password">
 			    					</div>
 			    				</div>
-			    			</div>
+							</div>
+							
+
+							
+			    			
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password">
+			    					</div>
+			    				</div>
+							</div>
+							
+
+							<div class="row">
+								<div class="col-xs-6 col-sm-6 col-md-6">
+										<div class="form-group">
+												<label>
+													Label
+												</label><textarea class="form-control" rows="4" cols="50" id="textarea_2569" aria-invalid="false"></textarea>
+											<div class="help-block"></div>
+										</div>
+								</div>
+							</div>
+			    			
 			    			
 			    			<input type="submit" value="Confirm Order" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">
 			    		
@@ -212,6 +241,25 @@ redirect_page = "catalog"
 {% else %}
  <div>Cart is empty</div>
 {% endif %}
+
+<script>
+var removeCart = function(ofid)
+{
+    //Prepare object with offers
+var data = {
+    'cart': [
+        {'offer_id': [ofid]}
+    ]
+};
+
+//Send ajax request and update cart items
+$.request('Cart::onRemove', {
+    'data': data,
+    'redirect' : '{{ 'cart'|page }}'
+});
+
+}
+</script>
 
 
 {% partial "footer" %}

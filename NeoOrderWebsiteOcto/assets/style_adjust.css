@@ -233,7 +233,7 @@ div.social-links{
 }
 
 .panel-product-body {
-     height: 110px;
+     height: 70px;
 }
 
 .form-control::-moz-placeholder {
@@ -269,4 +269,9 @@ div.social-links{
 
 .bgc-neon-green {
   background-color: #7DD84E;
+}
+
+
+.panel-order-total {
+    background-color: #f1d2f2;
 }
