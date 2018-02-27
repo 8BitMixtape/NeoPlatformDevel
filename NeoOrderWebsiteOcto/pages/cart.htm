@@ -1,0 +1,217 @@
+title = "Cart"
+url = "/cart"
+layout = "default"
+is_hidden = 0
+
+[MakeOrder]
+mode = "submit"
+redirect_on = 1
+redirect_page = "catalog"
+
+[Cart]
+
+[PaymentMethodList]
+
+[ShippingTypeList]
+==
+{% partial "header" %}
+
+<style>
+.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}
+	
+	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}
+
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #333; color: #fff; }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+</style>
+
+{% set obCartElementList = Cart.get() %}
+{% if obCartElementList.isNotEmpty() %}
+
+<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
+<div class="container bloc-lg sm-padding">
+<div class="row">
+<div class="col-sm-12">
+
+<!-- panel -->
+<div class="panel bgc-columbia-blue panel-shadow"> 
+					<div class="panel-heading bgc-raspberry-pink">
+						<h3 class="mg-clear tc-white">
+							 Shopping Cart
+						</h3>
+					</div>
+
+<div class="panel-body bgc-white">
+<!-- cart table -->
+	<table id="cart" class="table table-hover table-condensed" style="margin-bottom: 0px;">
+    				<thead>
+						<tr>
+							<th style="width:50%">Product</th>
+							<th style="width:10%">Price</th>
+							<th style="width:8%">Quantity</th>
+							<th style="width:22%" class="text-center">Subtotal</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+					    {% for obCartElement in obCartElementList %}
+                        {% set obOffer = obCartElement.offer %}	    
+                        {% set obProduct = obCartElement.offer.product %}
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-2 hidden-xs"><img src="{{ obProduct.preview_image.getThumb(250, 330) }}" alt="..." class="img-responsive"/></div>
+									<div class="col-sm-10">
+										<h4 class="nomargin">{{ obOffer.product.name }}</h4>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price">{{ obOffer.price }} </td>
+							<td data-th="Quantity">
+								<input type="number" class="form-control text-center" value="{{ obCartElement.quantity }}">
+							</td>
+							<td data-th="Subtotal" class="text-center">{{ obCartElement.price }} </td>
+							<td class="actions" data-th="">
+								<button class="btn  btn-sm"><i class="fa fa-refresh"></i></button>
+								<button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>								
+							</td>
+						</tr>
+						{% endfor %}
+
+					</tbody>
+				</table>
+<!-- end cart table -->
+</div><!-- end panel body -->
+
+                    <div class="panel-footer">
+                    
+                    						<h3 class="mg-clear text-center tc-black">
+
+                    Order Total: {{ obCartElementList.getTotalPrice() }}						</h3>
+
+                    </div>
+
+</div>  
+<!-- end panel -->
+
+<!-- start customer -->
+<form href="{{ 'cart'|page }}">
+        	<div class="panel panel-shadow">
+        		<div class="panel-heading bgc-raspberry-pink">
+			    		<h3 class="mg-clear tc-white">Order Form</h3>
+			 			</div>
+			 			<div class="panel-body">
+			    		<form role="form">
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			                <input type="text" name="user[name]" id="first_name" class="form-control input-sm" placeholder="First Name">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="text" name="order[property][last_name]" id="last_name" class="form-control input-sm" placeholder="Last Name">
+			    					</div>
+			    				</div>
+			    			</div>
+
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="email" name="user[email]" id="email" class="form-control input-sm" placeholder="Email">
+			    						  {% if arError.message is not empty and arError.field == 'email' %}
+                                            <p>{{ arError.message }}</p>
+                                          {% endif %}
+			    					</div>
+			    				</div>
+			    				
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="phone" name="order[property][phone]" id="phone" class="form-control input-sm" placeholder="Phone">
+			    					</div>
+			    				</div>
+			    				
+			    				
+			    			</div>
+			    			
+			    			
+			    						    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+
+			    			    {% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+    {% if obPaymentMethodList.isNotEmpty() %}
+        <div class="payment-method-list-wrapper">
+            {% for obPaymentMethod in obPaymentMethodList %}
+                <input type="radio" name="order[payment_method_id]" id="payment-{{ obPaymentMethod.id }}" value="{{ obPaymentMethod.id }}">
+                <label for="payment-{{ obPaymentMethod.id }}">{{ obPaymentMethod.name }}</label>
+            {% endfor %}
+        </div>
+    {% endif %}
+    </div>
+
+    </div>
+			    			
+
+    
+			    			
+			    			<div class="row">
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
+			    					</div>
+			    				</div>
+			    				<div class="col-xs-6 col-sm-6 col-md-6">
+			    					<div class="form-group">
+			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
+			    					</div>
+			    				</div>
+			    			</div>
+			    			
+			    			<input type="submit" value="Order" class="btn btn-sq btn-lg btn-block btn-glossy btn-purple-x11">
+			    		
+			    		</form>
+			    	</div>
+	    		</div>
+</form>
+
+<!-- end customer -->
+
+</div>
+</div>
+</div>
+</div>
+
+{% else %}
+ <div>Cart is empty</div>
+{% endif %}
+
+
+{% partial "footer" %}
