@@ -15,17 +15,9 @@ is_hidden = 0
 	
 	<div class="container bloc-sm masonry-padding">
 
-        <!-- user sub hero -->
-        <div class="row bloc-md">
-			<div class="col-xs-12 col-md-8 col-md-offset-2">
-				<h1 class="text-center fontforward tc-raspberry-pink">
-					My Mixtape.
-				</h1>
-			</div>
-		</div>    
-        <!-- user sub hero -->
+
 				
-      <div class="row voffset-md grid ">
+      <div class="row grid ">
       
    {%  set mixtapes = mymixtape.mixtapes %}
 
@@ -46,7 +38,7 @@ is_hidden = 0
                     <div class="panel-footer">
                     
                     
-                    <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>UPDATE</b></a>
+                    <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>EDIT</b></a>
 
                      {% if record.hex_file.path %}
                         <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>

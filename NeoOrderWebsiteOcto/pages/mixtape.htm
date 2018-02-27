@@ -27,18 +27,10 @@ pageNumber = "{{ :page }}"
 
 	
 	<div class="container bloc-sm masonry-padding">
-        
-        <!-- user sub hero -->
-        <div class="row bloc-md">
-			<div class="col-xs-12 col-md-8 col-md-offset-2">
-				<h1 class="text-center fontforward tc-raspberry-pink">
-					User Submitted Mixtape.
-				</h1>
-			</div>
-		</div>    
-        <!-- user sub hero -->
+
+
 				
-      <div class="row voffset-md grid ">
+      <div class="row grid ">
 
     {% for record in records %}
             {# Use spaceless tag to remove spaces inside the A tag. #}
@@ -49,8 +41,8 @@ pageNumber = "{{ :page }}"
                         <h4 class="mg-clear tc-white"><a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a></h4>
                     </div>
                     
-                    <div class="panel-body panel-product-body">
-                     {{ html_limit(record.description, 120)|raw }}                     	
+                    <div class="panel-body panel-body-mixtape">
+                     {{ html_limit(record.description, 150)|raw }}                     	
                     </div>
                     
                     <div class="panel-footer">

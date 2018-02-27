@@ -192,15 +192,6 @@ a:hover{text-decoration: none; cursor:pointer;}
 	border-color:rgba(0,0,0,.3);
 }
 
-/* Row Margin Offsets */
-
-.voffset{
-	margin-top:30px;
-}
-.voffset-lg{
-	margin-top:80px;
-}
-
 /* Bloc text custom styling */
 
 #bloc-3 h2{
@@ -415,11 +406,6 @@ button{
 	margin-right:5px;
 }
 
-/* = Icons
--------------------------------------------------------------- */
-.icon-sm{
-	font-size:18px!important;
-}
 
 
 /* = Text & Icon Styles
@@ -428,14 +414,6 @@ button{
 	text-shadow:0 2px 5px rgba(0,0,0,.5);
 }
 
-/* = Lists
--------------------------------------------------------------- */
-.list-sp-md li{
-	padding-bottom:10px;
-}
-.list-sp-md li:last-child,.list-sp-lg li:last-child,.list-sp-xl li:last-child{
-	padding-bottom:0;
-}
 
 /* = Panels
 -------------------------------------------------------------- */
@@ -576,13 +554,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	font-size:50px;
 	margin-top:20%;
 }
-.statement-bloc-text{
-	line-height:38px;
-	font-style:italic;
-	font-size:28px;
-	text-align:center;
-	font-weight:lighter;
-}
 
 /* = Colour
 -------------------------------------------------------------- */
@@ -605,7 +576,7 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 	background-color:#97E9FE;
 }
 .bgc-raspberry-pink{
-	background-color:#E358AB;
+	background-color:#E257AB;
 }
 .bgc-black{
 	background-color:#000000;
@@ -618,12 +589,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 .tc-tangerine-yellow{
 	color:#FFCC00!important;
-}
-.tc-raspberry-pink{
-	color:#E358AB!important;
-}
-.tc-lavender-web{
-	color:#D1E3FF!important;
 }
 
 /* Button colour styles */
@@ -658,22 +623,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 .btn-neon-carrot:hover{
 	background:#cc8230!important;
-	color:#FFFFFF!important;
-}
-.btn-phlox{
-	background:#EA00FF;
-	color:#FFFFFF!important;
-}
-.btn-phlox:hover{
-	background:#bb00cc!important;
-	color:#FFFFFF!important;
-}
-.btn-celestial-blue{
-	background:#4B96DE;
-	color:#FFFFFF!important;
-}
-.btn-celestial-blue:hover{
-	background:#3c78b2!important;
 	color:#FFFFFF!important;
 }
 
@@ -921,18 +870,6 @@ h1,h2,h3,h4,h5,h6,p,label,.btn,a{
 }
 .bloc-group-text-vc{
 	margin-top:0%;
-}
-.blocs-team-avatar{
-	max-width:280px;
-}
-.blocs-team-header{
-	text-align:center;
-}
-.blocs-team-details{
-	text-align:center;
-}
-.blocs-team-first-social{
-	margin-left:41%;
 }
  }
 
