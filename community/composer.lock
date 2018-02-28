@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b837b2a47b196ea179f4465c2da850e0",
+    "content-hash": "8322b364fef7127d4747db2f7ccd527f",
     "packages": [
+        {
+            "name": "clarkwinkelmann/flarum-ext-emojionearea",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/clarkwinkelmann/flarum-ext-emojionearea.git",
+                "reference": "46616856b74576b378a6e32de1b17f0e29109325"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/clarkwinkelmann/flarum-ext-emojionearea/zipball/46616856b74576b378a6e32de1b17f0e29109325",
+                "reference": "46616856b74576b378a6e32de1b17f0e29109325",
+                "shasum": ""
+            },
+            "require": {
+                "flarum/core": "^0.1.0-beta.6"
+            },
+            "type": "flarum-extension",
+            "extra": {
+                "flarum-extension": {
+                    "title": "Emoji Picker",
+                    "icon": {
+                        "name": "caret-square-o-up",
+                        "backgroundColor": "#f39c12",
+                        "color": "#ffffff"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "ClarkWinkelmann\\EmojiOneArea\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Clark Winkelmann",
+                    "email": "clark.winkelmann@gmail.com",
+                    "homepage": "https://clarkwinkelmann.com/"
+                }
+            ],
+            "description": "Add EmojiOne Area emoji picker to Flarum",
+            "time": "2017-08-24T20:02:57+00:00"
+        },
         {
             "name": "components/font-awesome",
             "version": "4.7.0",

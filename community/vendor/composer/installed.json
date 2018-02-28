@@ -1,5 +1,54 @@
 [
     {
+        "name": "clarkwinkelmann/flarum-ext-emojionearea",
+        "version": "0.1.2",
+        "version_normalized": "0.1.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/clarkwinkelmann/flarum-ext-emojionearea.git",
+            "reference": "46616856b74576b378a6e32de1b17f0e29109325"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/clarkwinkelmann/flarum-ext-emojionearea/zipball/46616856b74576b378a6e32de1b17f0e29109325",
+            "reference": "46616856b74576b378a6e32de1b17f0e29109325",
+            "shasum": ""
+        },
+        "require": {
+            "flarum/core": "^0.1.0-beta.6"
+        },
+        "time": "2017-08-24T20:02:57+00:00",
+        "type": "flarum-extension",
+        "extra": {
+            "flarum-extension": {
+                "title": "Emoji Picker",
+                "icon": {
+                    "name": "caret-square-o-up",
+                    "backgroundColor": "#f39c12",
+                    "color": "#ffffff"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "ClarkWinkelmann\\EmojiOneArea\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Clark Winkelmann",
+                "email": "clark.winkelmann@gmail.com",
+                "homepage": "https://clarkwinkelmann.com/"
+            }
+        ],
+        "description": "Add EmojiOne Area emoji picker to Flarum"
+    },
+    {
         "name": "components/font-awesome",
         "version": "4.7.0",
         "version_normalized": "4.7.0.0",
