@@ -43,8 +43,7 @@
         "flarum/flarum-ext-subscriptions": "^0.1.0",
         "flarum/flarum-ext-suspend": "^0.1.0",
         "flarum/flarum-ext-tags": "^0.1.0",
-        "wuethrich44/flarum-ext-sso": "^1.1",
-        "clarkwinkelmann/flarum-ext-emojionearea": "^0.1.2"
+        "wuethrich44/flarum-ext-sso": "^1.1"
     },
     "require-dev": {
         "franzl/studio": "^0.11.0"

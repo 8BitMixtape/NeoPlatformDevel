@@ -128,7 +128,6 @@ class ComposerStaticInit84b93253eecad1014a962ce61ac1f8ee
         ),
         'C' => 
         array (
-            'ClarkWinkelmann\\EmojiOneArea\\' => 29,
             'Carbon\\' => 7,
         ),
     );
@@ -415,10 +414,6 @@ class ComposerStaticInit84b93253eecad1014a962ce61ac1f8ee
         'Dflydev\\FigCookies\\' => 
         array (
             0 => __DIR__ . '/..' . '/dflydev/fig-cookies/src/Dflydev/FigCookies',
-        ),
-        'ClarkWinkelmann\\EmojiOneArea\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/clarkwinkelmann/flarum-ext-emojionearea/src',
         ),
         'Carbon\\' => 
         array (
