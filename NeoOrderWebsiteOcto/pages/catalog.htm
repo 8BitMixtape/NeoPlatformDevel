@@ -42,6 +42,17 @@ forceUrl = 0
 {% set obProductList = ProductList.make().active().category(2) %}
 {% endif %}
 
+{% set obProductCount = obProductList.count() %}
+
+{% if (obProductCount == 1) %}
+{% set obOffset = "col-md-offset-4" %}
+{% endif %}
+
+{% if (obProductCount == 2) %}
+{% set obOffset = "col-md-offset-1" %}
+{% endif %}
+
+
 <div id="bloc-7" class="bloc bgc-purple-x111 d-bloc " style="background-color: #0cb41a;">
 	<div class="container bloc-sm">
 		<div class="row">
@@ -66,7 +77,7 @@ forceUrl = 0
     {% set obOffer = obProduct.offer.active().first() %}
     
 
-<div class="col-sm-4">
+<div class="{{obOffset}} col-sm-4">
 				<div class="panel panel-shadow bgc-blue-violet">
 					<div class="panel-heading  bgc-blue-violet ">
 						<h3 class="mg-sm text-center tc-white fontforward ">
