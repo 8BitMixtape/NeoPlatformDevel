@@ -49,7 +49,7 @@ forceUrl = 0
 {% endif %}
 
 {% if (obProductCount == 2) %}
-{% set obOffset = "col-md-offset-1" %}
+{% set obOffset = "col-md-offset-2" %}
 {% endif %}
 
 
@@ -72,12 +72,14 @@ forceUrl = 0
 <!-- start wrap -->
 
 {% if obProductList.isNotEmpty() or obProductList is not empty %}
-        
+
+<div class="col-xs-12 col-sm-12 col-md-12 {{obOffset}} ">
+
 {% for obProduct in obProductList %}
     {% set obOffer = obProduct.offer.active().first() %}
-    
 
-<div class="{{obOffset}} col-sm-4">
+
+<div class="col-sm-4">
 				<div class="panel panel-shadow bgc-blue-violet">
 					<div class="panel-heading  bgc-blue-violet ">
 						<h3 class="mg-sm text-center tc-white fontforward ">
@@ -109,8 +111,8 @@ forceUrl = 0
 					
 				</div>
 			</div>    
-  
 {% endfor %}
+</div>	  
 
 {% endif %}
 
