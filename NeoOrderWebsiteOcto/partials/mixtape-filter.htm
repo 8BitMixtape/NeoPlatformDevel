@@ -1,0 +1,18 @@
+
+			<div id="bloc-filter" style="background-color: #11e6c0;padding: 5px; width:100%;" class=" bloc d-bloc bloc-bg-texture texture-diagonal-lines l-bloc">
+                <div class="container  masonry-padding">
+                    <div class="row text-center">
+                            <div class="col-xs-12">
+                                {{ form_ajax('onFilterMixtape', { update: { 'mixtape-list': '#mixtapeList', 'mixtape-paginate': '#mixtapePaginate' } }) }}
+
+                                {% for tag in tags %}
+                                <input name="Filter[tags][]" value="{{tag.id}}" type="checkbox">   
+                                <label>{{tag.tag}}</label>
+                                {% endfor %}
+                        
+                                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" type="submit" value="test" style="background-color: #b3a4a4;">Filter Mixtape</button>
+                                {{ form_close }}
+                            </div>
+                    </div>
+                </div>
+            </div>

@@ -1,0 +1,32 @@
+{% for record in records %}
+{# Use spaceless tag to remove spaces inside the A tag. #}
+{% spaceless %}
+<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item">
+    <div class="panel bgc-columbia-blue panel-shadow">                    
+        
+        <div class="panel-heading bgc-raspberry-pink">
+            <h4 class="mg-clear tc-white"><a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a></h4>
+        </div>
+        
+        <div class="panel-body panel-body-mixtape">
+            {{ html_limit(record.description, 150)|raw }}                     	
+        </div>
+        
+        <div class="panel-footer">                
+            <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-detail'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>DETAIL</b></a>
+            <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>DOWNLOAD</b></button>
+            {% if record.hex_file.path %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
+            {% else %}
+                {% if record.wav_file %}
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
+                {% endif %}            
+            {% endif %}
+        </div>
+        
+    </div>
+</div>
+{% endspaceless %}
+{% else %}
+{{ noRecordsMessage }}
+{% endfor %}
