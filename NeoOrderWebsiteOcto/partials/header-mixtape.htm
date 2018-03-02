@@ -1,0 +1,46 @@
+[viewBag]
+==
+<!-- bloc-0 -->
+<div class="sticky-nav bloc bloc-mixtape-panel">
+		<div class="bloc bgc-purple-x11  bloc-bg-texture texture-diagonal-lines d-bloc" id="bloc-0">
+				<div class="container">
+					<nav class="navbar row">
+						<div class="navbar-header">
+							<a class="navbar-brand ltc-tangerine-yellow" href="{{ 'home'|page }}"><img src="{{ 'assets/images/neocompany3.png'|theme }}" alt="logo" width="400" height="34" class="img-responsive" /></a>
+							<button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1">
+								<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+							</button>
+						</div>
+						{%partial "navbar" %}
+					</nav>
+				</div>
+			</div>
+
+
+			<div id="bloc-filter" style="background-color: #11e6c0;padding: 5px; width:100%;" class=" bloc d-bloc bloc-bg-texture texture-diagonal-lines l-bloc">
+					<div class="container  masonry-padding">
+						<div class="row text-center">
+								<div class="col-xs-12">
+									<form method="POST" action="http://localhost:8000/octo/mixtape" accept-charset="UTF-8" data-request="onFilterMixtape"><input name="_session_key" value="bkvGUfpwhED5FMCuQb5pfA1cKazZXDA6EjELl2Pn" type="hidden"><input name="_token" value="OCswa4FIoWSjN8INwOf3z0cyjhkM9c5FicbvQpoy" type="hidden">
+									<input name="Filter[genres][]" value="1" type="checkbox">    
+									<label>All</label>
+							
+									<input name="Filter[genres][]" value="2" type="checkbox">    
+									<label>Drone</label>
+							
+									<input name="Filter[genres][]" value="3" type="checkbox">  
+									<label>Noise</label>
+							
+									<input name="Filter[genres][]" value="4" type="checkbox">   
+									<label>Algorave</label>
+							
+							
+									<button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" type="submit" value="test" style="background-color: #b3a4a4;">Filter Mixtape</button>
+									</form>
+								</div>
+						</div>
+					</div>
+				</div>
+</div>
+
+<!-- bloc-0 END -->

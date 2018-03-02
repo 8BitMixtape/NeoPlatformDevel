@@ -13,7 +13,14 @@ detailsPage = "-"
 detailsUrlParameter = "id"
 pageNumber = "{{ :page }}"
 ==
-{% partial "header" %}
+<?
+function onFilterMixtape()
+{
+    return post('Filter',[]);
+}
+?>
+==
+{% partial "header-mixtape" %}
 
 {% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
@@ -21,6 +28,9 @@ pageNumber = "{{ :page }}"
 {% set detailsPage = builderList.detailsPage %}
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
+
+
+
 
 <div class="bloc bgc-tangerine-yellow d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
 	
