@@ -11,6 +11,7 @@ use Request;
 use ValidationException;
 
 use Mixtapes\Mixtapes\Models\Mixtape;
+use Mixtapes\Mixtapes\Models\MixtapeTag;
 use Mixtapes\Mixtapes\Classes\Flarum;
 
 
@@ -30,8 +31,11 @@ class MixtapeEdit extends ComponentBase
         $user = Auth::getUser();
 
         $this->mixtape = $this->loadMixtape();
+        $this->tags = $this->loadTags();
+
         $this->page['mixtape'] = $this->mixtape;
-        
+        $this->page['tags'] = $this->tags;
+
         //todo use middleware
         if($user->id != $this->mixtape->user_id) {
             return Redirect::back();               
@@ -129,7 +133,7 @@ class MixtapeEdit extends ComponentBase
             });
     
             if ($validator->fails()) {
-                return Redirect::back()->withErrors($validator)->withInput();;   
+                return Redirect::back()->withErrors($validator)->withInput();
             }
 
             // dd($hex_file);
@@ -138,6 +142,8 @@ class MixtapeEdit extends ComponentBase
         $mixtape->zip_file = $hex_file;
         $mixtape->save();
 
+        $mixtape->tags()->sync(Input::get('tags'));
+
         $flarum = new Flarum();
 
         $flarum_id = $flarum->renameDiscussion($user->username, $mixtape->flarum_id, '[mixtape] ' . Input::get('name'));
@@ -145,6 +151,8 @@ class MixtapeEdit extends ComponentBase
 
 
         Flash::success('Mixtape edited!');
+        return Redirect::back()->withInput();
+
 
     }
  
@@ -155,7 +163,13 @@ class MixtapeEdit extends ComponentBase
         return $query;
     }
 
+    protected function loadTags(){
+        $query = MixtapeTag::all();
+        return $query;
+    }
+
     public $mixtape;
+    public $tags;
 
 }
 

@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 
 use Mixtapes\Mixtapes\Models\Mixtape;
+use Mixtapes\Mixtapes\Models\MixtapeTag;
 use Mixtapes\Mixtapes\Classes\Flarum;
 
 use Input;
@@ -25,6 +26,9 @@ class MixtapeUpload extends ComponentBase
         ];
     }
     
+    public function onRun(){
+        $this->page['tags'] = $this->loadTags();
+    }
 
     public function onSave(){
 
@@ -85,13 +89,26 @@ class MixtapeUpload extends ComponentBase
             }
             
         }
+
+
+        Validator::extend('valid_tags', function($attribute, $value, $parameters) {
+            $tags_input = $value;
+            $tags_id = MixtapeTag::all()->lists('id');
+            if( !is_array($tags_input)) $tags_input = [$tags_input];
+            foreach ($tags_input as $tag_value) {
+                if(!in_array($tag_value, $tags_id))
+                    return false;
+            }            
+            return true;
+        }, "Tags not valid");
         
 
         $validator = Validator::make(
             $form, [
                'name' => 'required',
                'description' => 'required',
-               'hex_file' => 'required'
+               'hex_file' => 'required',
+               'tags' => 'required|valid_tags'
             ]
         );
 
@@ -133,8 +150,12 @@ class MixtapeUpload extends ComponentBase
         return Redirect::back();
      }
  
+     protected function loadTags(){
+        $query = MixtapeTag::all();
+        return $query;
+    }
 
-
+     public $tags;
 }
 
 ?>
