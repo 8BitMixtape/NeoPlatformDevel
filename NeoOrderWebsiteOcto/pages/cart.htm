@@ -165,61 +165,34 @@ redirect_page = "catalog"
 			    			
 			    						    			<div class="row">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
-
-			    			    {% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
-    {% if obPaymentMethodList.isNotEmpty() %}
-        <div class="payment-method-list-wrapper">
-            {% for obPaymentMethod in obPaymentMethodList %}
-                <input type="radio" name="order[payment_method_id]" id="payment-{{ obPaymentMethod.id }}" value="{{ obPaymentMethod.id }}">
-                <label for="payment-{{ obPaymentMethod.id }}">{{ obPaymentMethod.name }}</label>
-            {% endfor %}
-        </div>
-    {% endif %}
+									{% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
+									<div class="form-group">
+										<label for="payment">Select Payment:</label>
+										<select class="form-control" id="payment">
+										  {% if obPaymentMethodList.isNotEmpty() %}	
+											{% for obPaymentMethod in obPaymentMethodList %}
+												<option  value="{{ obPaymentMethod.id }}">{{ obPaymentMethod.name }}</option>
+											{% endfor %}
+										  {% endif %}
+										</select>
+									  </div>
+						
     </div>
 
     </div>
 			    			
 
     
-			    			
-			    			<div class="row">
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-			    					</div>
-			    				</div>
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password">
-			    					</div>
-			    				</div>
-							</div>
-							
-
+			    
 							
 			    			
-			    			<div class="row">
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
-			    					</div>
-			    				</div>
-			    				<div class="col-xs-6 col-sm-6 col-md-6">
-			    					<div class="form-group">
-			    						<input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password">
-			    					</div>
-			    				</div>
-							</div>
-							
 
 							<div class="row">
 								<div class="col-xs-6 col-sm-6 col-md-6">
-										<div class="form-group">
-												<label>
-													Label
-												</label><textarea class="form-control" rows="4" cols="50" id="textarea_2569" aria-invalid="false"></textarea>
-											<div class="help-block"></div>
-										</div>
+									<div class="form-group">
+										<label for="comment">Address:</label>
+										<textarea class="form-control" rows="5" id="comment"></textarea>
+									</div>
 								</div>
 							</div>
 			    			
