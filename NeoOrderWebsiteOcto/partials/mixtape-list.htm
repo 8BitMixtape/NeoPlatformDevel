@@ -1,15 +1,17 @@
 {% for record in records %}
 {# Use spaceless tag to remove spaces inside the A tag. #}
-{% spaceless %}
 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item">
     <div class="panel bgc-columbia-blue panel-shadow">                    
         
         <div class="panel-heading bgc-raspberry-pink">
-            <h4 class="mg-clear tc-white"><a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a></h4>
+            <h4 class="mg-clear tc-white">
+                <a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a>
+            </h4>
         </div>
         
         <div class="panel-body panel-body-mixtape">
-            {{ html_limit(record.description, 150)|raw }}                     	
+            {{ html_limit(record.description, 150)|raw }}
+            {% for tag in record.tags %}<span class=" badge badge-warning">{{ tag.tag }}</span> {% endfor %}            
         </div>
         
         <div class="panel-footer">                
@@ -26,7 +28,6 @@
         
     </div>
 </div>
-{% endspaceless %}
 {% else %}
 {{ noRecordsMessage }}
 {% endfor %}

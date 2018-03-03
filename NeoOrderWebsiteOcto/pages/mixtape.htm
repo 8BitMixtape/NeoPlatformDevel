@@ -23,9 +23,9 @@ function onFilterMixtape()
 function prepareVars()
 {   
     $options = post('Filter', []);
+    $options['page'] = get('page');
     $this['records'] =  Mixtape::listFrontEnd($options);
     $this['tags'] =  MixtapeTag::all();
-
 }
 ?>
 ==
@@ -36,7 +36,7 @@ function prepareVars()
       <div id="mixtapeList" class="row grid ">
             {% partial "mixtape-list" %}
       </div><!-- row -->
-      <div id="mixtapePaginate" class="row grid ">
+      <div id="mixtapePaginate" class="">
             {% partial "mixtape-paginate" %}
       </div>
     </div> <!-- container grid -->
