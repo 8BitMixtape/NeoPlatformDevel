@@ -19,8 +19,21 @@
 
     </div>
 
-
-
+    {% set checkbox_tags = form_value('tags').lists('id') ? form_value('tags').lists('id') : (form_value('tags'))  %}
+    
+    <div class="form-group">    
+     {% for tag in tags %}
+        {% set checked = (tag.id) in checkbox_tags ? 'checked' : '' %}
+        <div class="checkbox">
+            <label>
+            <input name="tags[]" type="checkbox" value="{{tag.id}}" {{checked}}>
+                {{tag.tag}}
+            </label>
+        </div>
+    {% endfor %}
+    {{ errors.first('tags') }}
+    </div>
+    
     <div class="form-group">
         <label class="btn btn-default btn-file">
             Compiled Sketch Zip File.. <input name="hex_file" type="file" style="display: none;">
