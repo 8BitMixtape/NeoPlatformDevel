@@ -1,6 +1,6 @@
 title = "Mixtape"
 url = "/mixtape/detail/:id?"
-layout = "default"
+layout = "bootstrap4"
 is_hidden = 0
 
 [builderDetails]
@@ -10,115 +10,53 @@ modelKeyColumn = "id"
 displayColumn = "name"
 notFoundMessage = "Record not found"
 ==
-{% partial "header" %}
 
 {% set record = builderDetails.record %}
 {% set displayColumn = builderDetails.displayColumn %}
 {% set notFoundMessage = builderDetails.notFoundMessage %}
 
 
-<!-- bloc-7 -->
-<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
-
-
-{% if record %}
-
-
-<div class="container bloc-sm sm-padding">
-		<div class="row">
-			<div class="col-sm-9">
-				<div class="panel bgc-columbia-blue panel-shadow">
-					<div class="panel-heading bgc-raspberry-pink">
-						<h3 class="mg-clear tc-white">
-							 {{ attribute(record, displayColumn) }}
-						</h3>
-					</div>
-					<div class="panel-body">
-						<p>
-							{{ record.description }}
-						</p>
-						
-              <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>SOURCE CODE</button>
-
-             {% if record.hex_file.path %}
-                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.hex_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>HEX</button>
-             {% endif %}
-
-             {% if record.wav_file.path %}
-                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>WAV</button>
-             {% endif %}
-                    
-             {% if record.hex_file.path %}
-                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
-             {% else %}
-                 {% if record.wav_file %}
-                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>INSTALL</button>
-                 {% endif %}            
-             {% endif %}
-             
-             
-             {% if record.flarum_id %}
-             
-                <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot"  href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span>DISCUSS</a>
-
-             
-             {% endif %}
-
-					</div>
+<div class="album py-5 bg-success bg-pattern-circuit">
+		<div class="container">
+		  <div class="row mb-4">
+			<div class="col-md-8">
+			  <div class="card panel-shadow border-0">
+				<div class="card-header bg-secondary mb-0">
+				  <h3 class="mb-0">{{ record.name }} </h3>
 				</div>
-				<div class="panel panel-shadow">
-					<div class="panel-heading nfo_panel_heading">
-						<h3 class="mg-clear">
-			            	<b>a:\README.TXT _</b>
-						</h3>
-					</div>				
-					<div class="panel-body nfo_panel">
-						<pre class="nfo_viewer">
-						    {% if record.info %}
-							{{ record.info }}
-							{% else %}
-							README NOT FOUND
-							{% endif %}
-						</pre>
-					</div>
-				</div>
+				<div class="card-body bg-secondary">
+				  <p>{{ record.description }}<br>                                  {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
+	</p>
+				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</button> {% if record.hex_file.path %}
+				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.hex_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>HEX</button> {% endif %} {% if record.wav_file.path %}
+				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>WAV</button> {% endif %} {% if record.hex_file.path %}
+				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);" href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% else %} {% if record.wav_file %}
+				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% endif %} {% endif %}
+				  <pre class="nfo_viewer">						    {% if record.info %}
+								{{ record.info }}
+								{% else %}
+								README NOT FOUND
+								{% endif %}
+							</pre> </div>
+			  </div>
 			</div>
-			<div class="col-sm-3">
-		
-				<div class="panel panel-shadow">
-					<div class="panel-heading">
-						<h5 class="mg-clear">
-						Uploaded by
-						</h5>
-					</div>
-					<div class="panel-body">
-<!-- cardbox -->			
-<div class="text-center card-box">			
-<div class="member-card">
-    <div class="thumb-xl member-thumb m-b-10 center-block"> <img src="{{ record.user.avatar.getThumb(100, 100, {'mode' : 'crop'}) }}" class="img-circle img-thumbnail" alt="profile-image"></div>
-    <div class="">
-        <h4 class="m-b-5">{{ record.user.name }}</h4>
-    </div>
-
-</div>
-</div>			
-<!-- cardbox -->	
-					</div>
+			<div class="col-md-4">
+			  <div class="card panel-shadow bg-secondary border-0">
+				<div class="card-header bg-secondary">
+				  <h4 class="mb-0 text-center">Author</h4>
 				</div>
+				<img class="img-fluid mx-auto m-4 rounded-circle" src="{{ record.user.avatar.getThumb(100, 100, {'mode' : 'crop'}) }}" alt="Card image cap" height="100
+	100">
+				<ul class="list-group list-group-flush">
+				  <li class="list-group-item list-group-item-warning text-center">Uploaded by&nbsp;{{ record.user.name }}</li>
+				</ul>
+				<div class="card-body">
+				  <a href="#" class="card-link">Card link</a>
+				</div>
+				<div class="card-footer text-muted">2 days ago</div>
+			  </div>
 			</div>
+		  </div>
+		  <!-- end row p4 -->
 		</div>
-	</div>
-
-
-{% else %}
-    {{ notFoundMessage }}
-{% endif %}
-
-
-</div>
-<!-- bloc-7 END -->
-
-<!-- ScrollToTop Button -->
-<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
-<!-- ScrollToTop Button END-->
-{% partial "footer" %}
+	  </div>

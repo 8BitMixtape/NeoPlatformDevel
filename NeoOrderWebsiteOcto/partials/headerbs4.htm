@@ -1,0 +1,85 @@
+[viewBag]
+
+[menuUserWidget]
+paramCode = "code"
+forceSecure = 0
+accountPage = "account"
+
+[localePicker]
+forceUrl = 0
+==
+  <header>
+        <nav class="navbar navbar-expand-sm navbar-dark fixed-top bg-primary navbar-shadow">
+          <a class="navbar-brand text-secondary " href="#">
+            <img src="{{ 'assets/images/neocompany3.png'|theme }}" class="d-inline-block" alt=""> </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active navbar-menu-text">
+                <a class="nav-link" href="{{ 'home'|page }}">HOME<span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item navbar-menu-text">
+                <a class="nav-link" href="{{ 'mixtape'|page }}">MIXTAPE</a>
+              </li>
+              <li class="nav-item dropdown navbar-menu-text">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DOCS&nbsp;</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="http://docs.8bitmixtape.cc">User Manual - English</a>
+                  <a class="dropdown-item" href="http://docs.8bitmixtape.cc/#/id/">User Manual - Indonesia</a>
+                  <a class="dropdown-item" href="http://wiki.8bitmixtape.cc">Developer Wiki</a>
+                  <a class="dropdown-item" href="https://github.com/8bitmixtape">Source Code</a>
+                </div>
+              </li>
+              <li class="nav-item navbar-menu-text">
+                <a class="nav-link" href="https://community.8bitmixtape.cc">COMMUNITY</a>
+              </li>
+              <li class="nav-item dropdown navbar-menu-text">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> BUY&nbsp;</a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Catalog</a>
+                  <a class="dropdown-item" href="#">Shopping Cart</a>
+                </div>
+              </li>
+              {% if user %}
+              <!-- logged in dropdown -->
+              <li class="nav-item dropdown navbar-menu-text">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> SIGN IN&nbsp;</a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="{{ 'upload-mixtape'|page }}">Upload Mixtape</a>               
+                            <a class="dropdown-item" href="{{ 'my-mixtape'|page }}">My Mixtape</a>     
+                            <a class="dropdown-item" href="{{ accountPage|page }}">Favourites</a>                    
+                            <a class="dropdown-item" href="{{ accountPage|page }}">{{ _('account', 'rainlab.user::lang.account') }}</a>
+                            <a class="dropdown-item" href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'"><i class="icon-signout"></i> &nbsp; {{ _('sign_out') }}</a>
+                    </div>
+              </li>                 
+              <!-- end logged in dropdown  -->
+              {% else %}
+              <!-- logged out dropdown -->
+              <li class="nav-item dropdown navbar-menu-text">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> SIGN IN&nbsp;</a>
+                    <div class="dropdown-menu dropdown-form" aria-labelledby="navbarDropdownMenuLink">
+                            <form class="menu-user-widget-sigin-form" data-request="onSignin">
+                                    <div class="form-group menu-user-widget-signin-login">
+                                        <input name="login" type="text" placeholder="{{ loginAttributeLabel }}">
+                                    </div>
+                                    <div class="form-group menu-user-widget-signin-password">
+                                        <input name="password" id="password" type="password" placeholder="{{ _('password', 'rainlab.user::lang.account') }}">
+                                    </div>
+                    
+                                    <div class="pull-right">
+                                        <a class="btn btn-primary btn-purple-x11 menu-user-widget-signin-btn" href="{{ accountPage|page }}" title="{{ _('register', 'rainlab.user::lang.account') }}"><i class="icon-pencil"></i> Register</a> &nbsp;
+                                    </div>
+                    
+                                    <button type="submit" class="btn btn-primary btn-purple-x11 menu-user-widget-signin-btn">{{ _('login', 'rainlab.user::lang.account') }}</button>
+                    
+                            </form>
+                    </div>
+               </li>
+               <!-- logged out dropdown -->
+               {% endif %}              
+            </ul>
+            <a class="btn btn-default navbar-btn mr-2 btn-primary text" href="/en">EN</a>
+            <a class="btn btn-default navbar-btn btn-primary" href="/id">ID</a>
+          </div>
+        </nav>
+      </header>

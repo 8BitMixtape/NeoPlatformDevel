@@ -56,7 +56,7 @@ class Mixtape extends Model
     public function scopeListFrontEnd($query, $options = []){
         extract(array_merge([
             'page' => 1,
-            'perPage' => 10,
+            'perPage' => 100,
             'sort' => 'updated_ats desc',
             'tags' => null,
             'year' => ''

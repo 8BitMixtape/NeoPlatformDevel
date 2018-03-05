@@ -1,102 +1,40 @@
 title = "My Mixtape"
 url = "/user/mixtape"
-layout = "default"
+layout = "bootstrap4"
 is_hidden = 0
 
 [mymixtape]
 ==
-{% partial "header" %}
 
-
-
-<div class="bloc bgc-tangerine-yellow d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">
-	
-
-	
-	<div class="container bloc-sm masonry-padding">
-
-
-				
-      <div class="row grid ">
-      
-   {%  set mixtapes = mymixtape.mixtapes %}
-
-
-    {% for record in mixtapes %}
-            {# Use spaceless tag to remove spaces inside the A tag. #}
-            {% spaceless %}
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4 card grid-item">
-                <div class="panel bgc-columbia-blue panel-shadow">                    
-                    <div class="panel-heading bgc-raspberry-pink">
-                        <h4 class="mg-clear tc-white"><a class="ltc-white" href="{{ 'mixtape-detail'|page }}/{{ record.id }}"> <b>{{ record.name }}</b></a></h4>
-                    </div>
-                    
-                    <div class="panel-body panel-body-mixtape">
-                     {{ html_limit(record.description, 150)|raw }}                     	
-                    </div>
-                    
-                    <div class="panel-footer">
-                    
-                    
-                    <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick=""  href="{{ 'mixtape-edit'|page }}/{{ record.id }}" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>EDIT</b></a>
-
-                     {% if record.hex_file.path %}
-                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
-                     {% else %}
-                         {% if record.wav_file %}
-                        <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>INSTALL</b></button>
-                         {% endif %}            
-                     {% endif %}
-
-                     <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.deleteMixtape(this, event)"  href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer" ></span><b>DELETE</b></a>
-
-                    </div>
-                    
-                </div>
+  <!-- user contributed -->
+  <div class="album py-5 bg-success bg-pattern-circuit">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-md-12">
+              <h1 class="text-center text-secondary display-4 mb-4 fontforward pixel-text-header text-shadow">My Mixtape&nbsp;</h1>
             </div>
-            {% endspaceless %}
-    {% else %}
-        {{ noRecordsMessage }}
-    {% endfor %}
-
-    {% if records.lastPage > 1 %}
-        <ul class="pagination">
-            {% if records.currentPage > 1 %}
-                <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-            {% endif %}
-    
-            {% for page in 1..records.lastPage %}
-                <li class="{{ records.currentPage == page ? 'active' : null }}">
-                    <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-                </li>
-            {% endfor %}
-    
-            {% if records.lastPage > records.currentPage %}
-                <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-            {% endif %}
-        </ul>
-    {% endif %}
-
-
-
-
+          </div>
+          
+          <!-- <div class="row mb-4">
+            <div class="col-md-12">
+              <img class="img-fluid d-block mx-auto" src="images/8bitpixel_cover.png" width="400"> 
+            </div>
+          </div>
+           -->
+          <div class="row p-4">  <!-- start row p4 -->
+            {% partial 'mixtape-list-edit' %}
+          </div> <!-- end row p4 -->
         </div>
-    </div>
 </div>
-
+<!-- user contributed -->
+    
 <script>
-
 window.deleteMixtape = function(dom, event){
    // event.preventDefault();
    var hex_id = (dom.getAttribute('value')); 
-
     $.request('onDelete', {
         data: {id: hex_id},
         confirm: "Confirm delete?",
     })
 }
-
 </script>
-
-
-{% partial "footer" %}

@@ -1,6 +1,6 @@
 title = "Mixtape Store"
 url = "/mixtape"
-layout = "default"
+layout = "bootstrap4"
 is_hidden = 0
 
 
@@ -29,17 +29,27 @@ function prepareVars()
 }
 ?>
 ==
-{% partial "header-mixtape" %}
 
-<div class="bloc bgc-tangerine-yellow d-bloc bloc-bg-texture texture-diagonal-lines l-bloc" id="bloc-1">	
-	<div class="container bloc-sm masonry-padding">
-      <div id="mixtapeList" class="row grid ">
-            {% partial "mixtape-list" %}
-      </div><!-- row -->
-      <div id="mixtapePaginate" class="">
-            {% partial "mixtape-paginate" %}
-      </div>
-    </div> <!-- container grid -->
-</div><!-- bloc -->
+  <!-- user contributed -->
+  <div class="album py-5 bg-success bg-pattern-circuit">
+        <div class="container">
+          <div class="row mb-4">
+            <div class="col-md-12">
+              <h1 class="text-center text-secondary display-4 mb-4 fontforward pixel-text-header text-shadow">User contributed Mixtape&nbsp;</h1>
+            </div>
+          </div>
+          
+          <!-- <div class="row mb-4">
+            <div class="col-md-12">
+              <img class="img-fluid d-block mx-auto" src="images/8bitpixel_cover.png" width="400"> 
+            </div>
+          </div>
+           -->
+          <div class="row p-4">  <!-- start row p4 -->
+            {% partial 'mixtape-list' %}
+          </div> <!-- end row p4 -->
+        </div>
+</div>
+<!-- user contributed -->
+    
 
-{% partial "footer" %}

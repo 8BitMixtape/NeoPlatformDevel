@@ -18,11 +18,16 @@ fields:
         type: textarea
     hex_file:
         label: 'File upload'
-        span: full
-        oc.commentPosition: ''
         mode: file
         useCaption: true
         thumbOptions:
             mode: crop
             extension: auto
+        span: full
         type: fileupload
+    tags:
+        label: Relation
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        type: relation

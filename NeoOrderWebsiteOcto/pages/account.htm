@@ -1,6 +1,6 @@
 title = "Account"
 url = "/account/:code?"
-layout = "default"
+layout = "bootstrap4"
 is_hidden = 0
 
 [session]
@@ -21,81 +21,36 @@ function onInit(){
 }
 ?>
 ==
-{% partial "header" %}
-
-<!-- bloc-7 -->
-<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
-	<div class="container bloc-lg sm-padding">
-		<div class="row voffset">
-			<div class="col-sm-12 col-md-6 col-md-offset-3">
-            <!-- content -->
-            
+<div class="py-5 bg-secondary">
+        <div class="container">
+          <div class="row">
             {% if not user %}
-            
-
-
-                <div class="row">
-
-
-                    <div class="col-md-6">
-                                <!-- panel -->
-            <div class="panel panel-shadow">
-					<div class="panel-heading">
-						<h3 class="mg-clear">
-							Sign in
-						</h3>
-					</div>
-            
-			<div class="panel-body">
-			
-                        {% partial account ~ '::signin' %}
-                        
-                                    </div>
-            </div>
-            <!-- end panel -->
-            
-                    </div>
-            
-                    <div class="col-md-6">
-                    
-                                <!-- panel -->
-            <div class="panel panel-shadow">
-					<div class="panel-heading">
-						<h3 class="mg-clear">
-							Register
-						</h3>
-					</div>
-					
-			<div class="panel-body">                    
-
-
-                                                {% partial 'register.htm' %}
-
-                        
-                                                            </div>
-            </div>
-            <!-- end panel -->
-                        
-                    </div>
-            
+            <div class="col-md-6">
+              <div class="card panel-shadow mb-2 border-dark border-0">
+                <div class="card-header text-primary bg-primary">
+                  <h5 class="mb-0 text-secondary text-shadow"> Login </h5>
                 </div>
-                
-
-
+                <div class="card-body"> {% partial account ~ '::signin' %} </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card panel-shadow mb-2 border-0">
+                <div class="card-header text-primary bg-primary">
+                  <h5 class="mb-0 text-secondary text-shadow">Register</h5>
+                </div>
+                <div class="card-body"> {% partial 'register.htm' %} </div>
+              </div>
+            </div>
             {% else %}
-                    
-                                                            {% partial 'account.htm' %}
-
+            <div class="col-md-6 offset-md-3">
+                    <div class="card panel-shadow mb-2 border-0">
+                      <div class="card-header text-primary bg-primary">
+                        <h5 class="mb-0 text-secondary text-shadow">My Account</h5>
+                      </div>
+                      <div class="card-body"> {% partial 'account.htm' %} </div>
+                    </div>
+                  </div>
             {% endif %}
-            
-            <!-- end content -->
-			</div>
-		</div>
-	</div>
+          </div>
+        </div>
 </div>
-<!-- bloc-7 END -->
-
-<!-- ScrollToTop Button -->
-<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
-<!-- ScrollToTop Button END-->
-{% partial "footer" %}

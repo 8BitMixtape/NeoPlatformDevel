@@ -1,6 +1,6 @@
 title = "Upload Mixtape"
 url = "/user/upload"
-layout = "default"
+layout = "bootstrap4"
 is_hidden = 0
 
 [mixtapeupload]
@@ -9,58 +9,24 @@ is_hidden = 0
 security = "user"
 redirect = "account"
 ==
-{% partial "header" %}
 
-<!-- bloc-7 -->
-<div class="bloc bgc-tangerine-yellow l-bloc bloc-bg-texture texture-diagonal-lines" id="bloc-7">
-	<div class="container bloc-lg sm-padding">
-		<div class="row">
-			<div class="col-sm-12 col-md-6 col-md-offset-3">
-            <!-- content -->
-            
-            {% if not user %}
-            
-                <div class="row">
-
-                    <div class="col-md-12">
-                        <h3>Please Login..</h3>
-                    </div>
-            
-                    
-                </div>
-            
-            {% else %}
-                    
-
-<div class="panel panel-shadow">
-					<div class="panel-heading">
-						<h3 class="mg-clear">
-							Upload Mixtape
-						</h3>
-					</div>
-					<div class="panel-body">
-						<p>
-							From Arduino IDE click <b>"export compiled binary"</b> then click <b>"show sketch folder"</b> upload resulting zip file
-						</p>
-						
-					    {% component 'mixtapeupload' %}
-
-					</div>
+<div class="py-5 bg-secondary">
+		<div class="container">
+		  <div class="row">
+			<div class="col-md-6 offset-md-3">
+			  <div class="card border-0 panel-shadow mb-2">
+				<div class="card-header text-primary bg-primary">
+				  <h5 class="mb-0 text-secondary text-shadow">Upload Mixtape</h5>
 				</div>
-				
-				
-                    
-            
-            {% endif %}
-            
-            <!-- end content -->
+				<div class="card-body">
+						<p>
+								From Arduino IDE click <b>"export compiled binary"</b> then click <b>"show sketch folder"</b> upload resulting zip file
+							</p>
+							
+							{% component 'mixtapeupload' %}
+				</div>
+			  </div>
 			</div>
+		  </div>
 		</div>
-	</div>
-</div>
-<!-- bloc-7 END -->
-
-<!-- ScrollToTop Button -->
-<a class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1')"><span class="fa fa-chevron-up"></span></a>
-<!-- ScrollToTop Button END-->
-{% partial "footer" %}
+	  </div>
