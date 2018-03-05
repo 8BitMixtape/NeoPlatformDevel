@@ -6146,7 +6146,7 @@ html, body {
 @media (max-width: 575.98px) {
   .navbar-brand img {
     vertical-align: middle !important;
-    max-height: 20px;
+    max-height: 15px;
     width: auto; }
   .navbar-toggler {
     margin-right: 0.25em; } }
@@ -6245,7 +6245,7 @@ body {
   border-bottom: 1px solid #f0f0f066;
   background-color: #ffd210; }
 
-.dropdown-menu.show a:hover.dropdown-item {
+.dropdown-menu.show a.dropdown-item:hover {
   background-color: #fff; }
 
 .pixel-text-h3 {
