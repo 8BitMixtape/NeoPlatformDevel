@@ -65,4 +65,7 @@
     - builder_table_create_mixtapes_mixtapes_platforms.php
 1.0.23:
     - 'Updated table mixtapes_mixtapes_tags'
+    - builder_table_update_mixtapes_mixtapes_tags3.php
+1.0.24:
+    - 'Updated table mixtapes_mixtapes_tags'
     - builder_table_update_mixtapes_mixtapes_tags_3.php
