@@ -6146,7 +6146,7 @@ html, body {
 @media (max-width: 575.98px) {
   .navbar-brand img {
     vertical-align: middle !important;
-    max-height: 10px;
+    max-height: 5px;
     width: auto; }
   .navbar-toggler {
     margin-right: 0.25em; } }
