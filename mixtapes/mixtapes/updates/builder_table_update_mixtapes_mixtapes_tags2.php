@@ -11,7 +11,7 @@ class BuilderTableUpdateMixtapesMixtapesTags2 extends Migration
         {
             $table->integer('mixtape_id')->unsigned()->change();
             $table->integer('mixtape_tag_id')->unsigned()->change();
-            $table->primary(['mixtape_id','mixtape_tag_id']);
+            $table->primary(['mixtape_id']);
         });
     }
     
@@ -19,7 +19,7 @@ class BuilderTableUpdateMixtapesMixtapesTags2 extends Migration
     {
         Schema::table('mixtapes_mixtapes_tags', function($table)
         {
-            $table->dropPrimary(['mixtape_id','mixtape_tag_id']);
+            $table->dropPrimary(['mixtape_id']);
             $table->integer('mixtape_id')->unsigned(false)->change();
             $table->integer('mixtape_tag_id')->unsigned(false)->change();
         });
