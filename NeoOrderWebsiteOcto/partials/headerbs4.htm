@@ -43,13 +43,22 @@ forceUrl = 0
               {% if user %}
               <!-- logged in dropdown -->
               <li class="nav-item dropdown navbar-menu-text">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> SIGN IN&nbsp;</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        
+                            {% if user.avatar %}
+                            <!-- <img class="rounded-circle" src="{{ user.avatar.getThumb(20, 20, {'mode' : 'crop'}) }}"> -->
+                            {% else %}
+                            <!-- <img class="rounded-circle" src="{{ 'assets/images/avatar-blank.png'|theme }}"> -->
+                            {% endif %}
+                            {{ user.username }}
+
+                    </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="{{ 'upload-mixtape'|page }}">Upload Mixtape</a>               
                             <a class="dropdown-item" href="{{ 'my-mixtape'|page }}">My Mixtape</a>     
                             <a class="dropdown-item" href="{{ accountPage|page }}">Favourites</a>                    
                             <a class="dropdown-item" href="{{ accountPage|page }}">{{ _('account', 'rainlab.user::lang.account') }}</a>
-                            <a class="dropdown-item" href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'"><i class="icon-signout"></i> &nbsp; {{ _('sign_out') }}</a>
+                            <a class="dropdown-item" href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'">{{ _('sign_out') }}</a>
                     </div>
               </li>                 
               <!-- end logged in dropdown  -->
