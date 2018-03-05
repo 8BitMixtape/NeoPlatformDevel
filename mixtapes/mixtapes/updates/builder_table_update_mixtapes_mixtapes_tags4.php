@@ -11,7 +11,7 @@ class BuilderTableUpdateMixtapesMixtapesTags4 extends Migration
         {
             $table->dropPrimary(['mixtape_id']);
             //$table->renameColumn('mixtape_tags_id', 'mixtape_tag_id');
-            $table->primary(['mixtape_id','mixtape_tag_id']);
+            $table->primary(['mixtape_id']);
         });
     }
     
@@ -21,7 +21,7 @@ class BuilderTableUpdateMixtapesMixtapesTags4 extends Migration
         {
             $table->dropPrimary(['mixtape_id']);
             //$table->renameColumn('mixtape_tag_id', 'mixtape_tags_id');
-            $table->primary(['mixtape_id','mixtape_tag_id']);
+            $table->primary(['mixtape_id']);
         });
     }
 }
