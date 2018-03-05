@@ -9,7 +9,7 @@ class BuilderTableUpdateMixtapesMixtapesTags extends Migration
     {
         Schema::table('mixtapes_mixtapes_tags', function($table)
         {
-            $table->renameColumn('mixtape_tag_id', 'mixtape_tags_id');
+            //$table->renameColumn('mixtape_tag_id', 'mixtape_tags_id');
         });
     }
     
@@ -17,7 +17,7 @@ class BuilderTableUpdateMixtapesMixtapesTags extends Migration
     {
         Schema::table('mixtapes_mixtapes_tags', function($table)
         {
-            $table->renameColumn('mixtape_tags_id', 'mixtape_tag_id');
+            //$table->renameColumn('mixtape_tags_id', 'mixtape_tag_id');
         });
     }
 }

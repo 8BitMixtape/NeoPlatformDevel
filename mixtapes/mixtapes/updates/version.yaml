@@ -53,7 +53,7 @@
     - builder_table_update_mixtapes_mixtapes_tags.php
 1.0.19:
     - 'Updated table mixtapes_mixtapes_tags'
-    - builder_table_update_mixtapes_mixtapes_tags_2.php
+    - builder_table_update_mixtapes_mixtapes_tags2.php
 1.0.20:
     - 'Updated table mixtapes_mixtapes_tag'
     - builder_table_update_mixtapes_mixtapes_tag.php
@@ -68,4 +68,4 @@
     - builder_table_update_mixtapes_mixtapes_tags3.php
 1.0.24:
     - 'Updated table mixtapes_mixtapes_tags'
-    - builder_table_update_mixtapes_mixtapes_tags_3.php
+    - builder_table_update_mixtapes_mixtapes_tags4.php
