@@ -9,9 +9,9 @@ class BuilderTableUpdateMixtapesMixtapesTags3 extends Migration
     {
         Schema::table('mixtapes_mixtapes_tags', function($table)
         {
-            $table->dropPrimary(['mixtape_id']);
+            //$table->dropPrimary(['mixtape_id']);
             //$table->renameColumn('mixtape_tag_id', 'mixtape_tags_id');
-            $table->primary(['mixtape_id']);
+            //$table->primary(['mixtape_id']);
         });
     }
     
@@ -19,9 +19,9 @@ class BuilderTableUpdateMixtapesMixtapesTags3 extends Migration
     {
         Schema::table('mixtapes_mixtapes_tags', function($table)
         {
-            $table->dropPrimary(['mixtape_id']);
+            //$table->dropPrimary(['mixtape_id']);
             //$table->renameColumn('mixtape_tags_id', 'mixtape_tag_id');
-            $table->primary(['mixtape_id']);
+            //$table->primary(['mixtape_id']);
         });
     }
 }
