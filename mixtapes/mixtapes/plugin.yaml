@@ -10,6 +10,14 @@ navigation:
         url: mixtapes/mixtapes/mixtapes
         icon: icon-birthday-cake
         sideMenu:
+            side-menu-item3:
+                label: Mixtape
+                url: mixtapes/mixtapes/mixtapes
+                icon: icon-sitemap
+            side-menu-item2:
+                label: 'Mixtape Tag'
+                url: mixtapes/mixtapes/mixtapetag
+                icon: icon-sitemap
             side-menu-item:
                 label: Settings
                 url: mixtapes/mixtapes/settings

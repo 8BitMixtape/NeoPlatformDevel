@@ -1,0 +1,4 @@
+columns:
+    tag:
+        label: 'Tag Name'
+        type: text

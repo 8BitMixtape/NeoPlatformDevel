@@ -1,0 +1,8 @@
+fields:
+    tag:
+        label: 'Tag Name'
+        oc.commentPosition: below
+        span: auto
+        placeholder: 'Drone, noise, algo, etc'
+        required: 1
+        type: text

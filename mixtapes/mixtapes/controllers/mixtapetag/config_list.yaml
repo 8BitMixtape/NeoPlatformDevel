@@ -1,0 +1,12 @@
+list: $/mixtapes/mixtapes/models/mixtapetag/columns.yaml
+modelClass: Mixtapes\Mixtapes\Models\MixtapeTag
+title: MixtapeTag
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'mixtapes/mixtapes/mixtapetag/update/:id'

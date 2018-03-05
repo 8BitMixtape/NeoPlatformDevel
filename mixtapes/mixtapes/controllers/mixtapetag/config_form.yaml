@@ -1,0 +1,10 @@
+name: MixtapeTag
+form: $/mixtapes/mixtapes/models/mixtapetag/fields.yaml
+modelClass: Mixtapes\Mixtapes\Models\MixtapeTag
+defaultRedirect: mixtapes/mixtapes/mixtapetag
+create:
+    redirect: 'mixtapes/mixtapes/mixtapetag/update/:id'
+    redirectClose: mixtapes/mixtapes/mixtapetag
+update:
+    redirect: mixtapes/mixtapes/mixtapetag
+    redirectClose: mixtapes/mixtapes/mixtapetag
