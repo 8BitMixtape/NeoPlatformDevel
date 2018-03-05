@@ -2,7 +2,7 @@
     - 'Initialize plugin.'
 1.0.2:
     - 'Created table mixtapes_mixtapes_'
-    - builder_table_create_mixtapes_mixtapes_.php
+    - builder_table_create_mixtapes_mixtapes.php
 1.0.3:
     - 'Drop table mixtapes_mixtapes_'
     - builder_table_delete_mixtapes_mixtapes_.php
@@ -23,13 +23,13 @@
     - builder_table_update_mixtapes_mixtapes__4.php
 1.0.9:
     - 'Updated table mixtapes_mixtapes_'
-    - builder_table_update_mixtapes_mixtapes__5.php
+    - builder_table_update_mixtapes_mixtapes5.php
 1.0.10:
     - 'Updated table mixtapes_mixtapes_'
-    - builder_table_update_mixtapes_mixtapes__6.php
+    - builder_table_update_mixtapes_mixtapes6.php
 1.0.11:
     - 'Updated table mixtapes_mixtapes_'
-    - builder_table_update_mixtapes_mixtapes__7.php
+    - builder_table_update_mixtapes_mixtapes7.php
 1.0.12:
     - 'Created table mixtapes_mixtapes_tags'
     - builder_table_create_mixtapes_mixtapes_tags.php
@@ -38,16 +38,16 @@
     - builder_table_delete_mixtapes_mixtapes_tags.php
 1.0.14:
     - 'Created table mixtapes_mixtapes_tags'
-    - builder_table_create_mixtapes_mixtapes_tags_2.php
+    - builder_table_create_mixtapes_mixtapes_tags2.php
 1.0.15:
     - 'Created table mixtapes_mixtapes_tag'
     - builder_table_create_mixtapes_mixtapes_tag.php
 1.0.16:
     - 'Drop table mixtapes_mixtapes_tags'
-    - builder_table_delete_mixtapes_mixtapes_tags_2.php
+    - builder_table_delete_mixtapes_mixtapes_tags2.php
 1.0.17:
     - 'Created table mixtapes_mixtapes_tags'
-    - builder_table_create_mixtapes_mixtapes_tags_3.php
+    - builder_table_create_mixtapes_mixtapes_tags3.php
 1.0.18:
     - 'Updated table mixtapes_mixtapes_tags'
     - builder_table_update_mixtapes_mixtapes_tags.php

@@ -3,7 +3,7 @@
 use Schema;
 use October\Rain\Database\Updates\Migration;
 
-class BuilderTableCreateMixtapesMixtapesTags2 extends Migration
+class BuilderTableCreateMixtapesMixtapesTags3 extends Migration
 {
     public function up()
     {
@@ -11,7 +11,7 @@ class BuilderTableCreateMixtapesMixtapesTags2 extends Migration
         {
             $table->engine = 'InnoDB';
             $table->integer('mixtape_id');
-            $table->integer('tag_id');
+            $table->integer('mixtape_tag_id');
         });
     }
     
