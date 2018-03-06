@@ -30,6 +30,22 @@ function prepareVars()
 ?>
 ==
 
+<div class="d-flex flex-column flex-md-row  align-items-center p-2 px-md-4 bg-white border-bottom box-shadow">
+        <nav class="my-2 my-md-0 mr-md-3">
+
+                {{ form_ajax('onFilterMixtape', { update: { 'mixtape-list': '#mixtapeList'} }) }}
+
+                {% for tag in tags %}
+                <input name="Filter[tags][]" value="{{tag.id}}" type="checkbox">   
+                <label>{{tag.tag}}</label>
+                {% endfor %}
+        
+                <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" type="submit" value="test" style="background-color: #b3a4a4;">Filter Mixtape</button>
+                {{ form_close }}
+
+        </nav>
+      </div>
+
   <!-- user contributed -->
   <div class="album py-5 bg-success bg-pattern-circuit">
         <div class="container">
@@ -45,7 +61,7 @@ function prepareVars()
             </div>
           </div>
            -->
-          <div class="row p-0">  <!-- start row p4 -->
+          <div id="mixtapeList" class="row p-0">  <!-- start row p4 -->
             {% partial 'mixtape-list' %}
           </div> <!-- end row p4 -->
         </div>
