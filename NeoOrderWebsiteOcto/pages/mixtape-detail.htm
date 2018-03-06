@@ -34,13 +34,11 @@ notFoundMessage = "Record not found"
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.downloadWav(this);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</a> {% endif %} {% endif %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}"><span class="fa fa-bolt icon-spacer"></span>DISCUSS</a>
 				 
-				  <pre class="nfo_viewer">						    
-					  			{% if record.info %}
-								{{ record.info }}
-								{% else %}
-								README NOT FOUND
+									{% if record.info %}
+									<pre class="nfo_viewer">		
+											{{ record.info }}				    
+									</pre> 
 								{% endif %}
-							</pre> 
 					</div>
 			  </div>
 			</div>
