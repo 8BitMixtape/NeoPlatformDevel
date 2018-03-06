@@ -25,7 +25,7 @@ function prepareVars()
     $options = post('Filter', []);
     $options['page'] = get('page');
     $this['records'] =  Mixtape::listFrontEnd($options);
-    $this['tags'] =  MixtapeTag::all();
+    $this['tags'] =  MixtapeTag::orderBy('tag', 'asc')->get();
 }
 ?>
 ==

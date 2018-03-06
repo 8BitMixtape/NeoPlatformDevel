@@ -164,7 +164,7 @@ class MixtapeEdit extends ComponentBase
     }
 
     protected function loadTags(){
-        $query = MixtapeTag::all();
+        $query = MixtapeTag::orderBy('tag', 'asc')->get();
         return $query;
     }
 
