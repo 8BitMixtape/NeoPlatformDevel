@@ -27,13 +27,12 @@ notFoundMessage = "Record not found"
 				<div class="card-body bg-secondary">
 				  <p>{{ record.description }}<br>                                  {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
 	</p>
-				  <button class="btn bg-lightbtn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</button> {% if record.hex_file.path %}
-				  <button class="btn bg-lightbtn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.hex_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>HEX</button> {% endif %} {% if record.wav_file.path %}
-				  <button class="btn bg-lightbtn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>WAV</button> {% endif %} {% if record.hex_file.path %}
-				  <button class="btn bg-lightbtn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);" href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% else %} {% if record.wav_file %}
-				  <button class="btn bg-lightbtn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% endif %} {% endif %}
-				 
-				  <a class="btn bg-light btn-sq btn btn-flat panel-shadow btn-neon-carrot" href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}"><span class="fa fa-bolt icon-spacer"></span>DISCUSS</a>
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</a> {% if record.hex_file.path %}
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.hex_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>HEX</a> {% endif %} {% if record.wav_file.path %}
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>WAV</a> {% endif %} {% if record.hex_file.path %}
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);" href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</a> {% else %} {% if record.wav_file %}
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</a> {% endif %} {% endif %}
+				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}"><span class="fa fa-bolt icon-spacer"></span>DISCUSS</a>
 				 
 				  <pre class="nfo_viewer">						    
 					  			{% if record.info %}
