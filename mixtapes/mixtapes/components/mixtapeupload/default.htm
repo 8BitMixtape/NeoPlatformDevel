@@ -23,7 +23,7 @@
             <p><b>Tags</b></p>
             {% for tag in tags %}
             <div class="form-check form-check-inline">
-                    {{ form_checkbox('tags[]', tag.id, false, {id: "inlineRadio"~tag.tag, name:'inlineRadioOptions',class: "form-check-input" } ) }}                    
+                    {{ form_checkbox('tags[]', tag.id, false, {id: "inlineRadio"~tag.tag, name:'tags[]',class: "form-check-input" } ) }}                    
                     <label class="form-check-label" for="inlineRadio{{tag.tag}}">{{tag.tag}}</label>
             </div>                          
             {% endfor %}  
