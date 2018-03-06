@@ -32,12 +32,17 @@ notFoundMessage = "Record not found"
 				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.open('{{ record.wav_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>WAV</button> {% endif %} {% if record.hex_file.path %}
 				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadHex(this);" href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% else %} {% if record.wav_file %}
 				  <button class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" onclick="window.downloadWav(this);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</button> {% endif %} {% endif %}
-				  <pre class="nfo_viewer">						    {% if record.info %}
+				 
+				  <a class="btn btn-sq btn btn-flat panel-shadow btn-neon-carrot" href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}"><span class="fa fa-bolt icon-spacer"></span>DISCUSS</a>
+				 
+				  <pre class="nfo_viewer">						    
+					  			{% if record.info %}
 								{{ record.info }}
 								{% else %}
 								README NOT FOUND
 								{% endif %}
-							</pre> </div>
+							</pre> 
+					</div>
 			  </div>
 			</div>
 			<div class="col-md-3">
