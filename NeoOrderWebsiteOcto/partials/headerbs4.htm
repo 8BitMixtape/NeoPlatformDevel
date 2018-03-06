@@ -15,11 +15,11 @@ forceUrl = 0
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto">
-              <li class="nav-item active navbar-menu-text">
+              <li class="nav-item {% if this.page.id == 'home' %}active{% endif %} navbar-menu-text">
                 <a class="nav-link" href="{{ 'home'|page }}">HOME<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item navbar-menu-text">
-                <a class="nav-link" href="{{ 'mixtape'|page }}">MIXTAPE</a>
+              <li class="nav-item {% if this.page.id == 'mixtape' %}active{% endif %}  navbar-menu-text">
+                <a class="nav-link " href="{{ 'mixtape'|page }}">MIXTAPE</a>
               </li>
               <li class="nav-item dropdown navbar-menu-text">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DOCS&nbsp;</a>
@@ -58,10 +58,10 @@ forceUrl = 0
 
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="{{ 'upload-mixtape'|page }}">Upload Mixtape</a>               
-                            <a class="dropdown-item" href="{{ 'my-mixtape'|page }}">My Mixtape</a>     
-                            <a class="dropdown-item" href="{{ accountPage|page }}">Favourites</a>                    
-                            <a class="dropdown-item" href="{{ accountPage|page }}">{{ _('account', 'rainlab.user::lang.account') }}</a>
+                            <a class="dropdown-item {% if this.page.id == 'upload-mixtape' %}active{% endif %} " href="{{ 'upload-mixtape'|page }}">Upload Mixtape</a>               
+                            <a class="dropdown-item {% if this.page.id == 'my-mixtape' %}active{% endif %}" href="{{ 'my-mixtape'|page }}">My Mixtape</a>     
+                            <a class="dropdown-item" href=#">Favourites</a>                    
+                            <a class="dropdown-item {% if this.page.id == 'account' %}active{% endif %}" href="{{ accountPage|page }}">{{ _('account', 'rainlab.user::lang.account') }}</a>
                             <a class="dropdown-item" href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'">{{ _('sign_out') }}</a>
                     </div>
               </li>                 
