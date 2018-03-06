@@ -6288,7 +6288,7 @@ body {
   line-height: 1.0em; }
   @media (max-width: 575.98px) {
     .big-hero {
-      font-size: 2em;
+      font-size: 2.5em;
       line-height: 1.5em; } }
 
 .smaller-hero {
@@ -6300,7 +6300,7 @@ body {
       line-height: 1.5em; } }
 
 .footer-header {
-  font-size: 0.8em; }
+  font-size: 1.5em; }
   @media (max-width: 575.98px) {
     .footer-header {
-      font-size: 0.5em; } }
+      font-size: 1em; } }
