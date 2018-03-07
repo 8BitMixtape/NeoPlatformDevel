@@ -144,6 +144,8 @@ class MixtapeUpload extends ComponentBase
 
         $success = $mixtape->save();
 
+        $mixtape->tags()->sync(Input::get('tags'));
+
         Flash::success('Mixtape added!');
 
         
