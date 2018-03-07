@@ -13,8 +13,10 @@ $(function () {
         setTimeout(cb, time);
       }
 
-      window.downloadHex = function(dom)
+      window.downloadHex = function(dom, event)
       {
+          event.preventDefault();
+          
           var hex_id = dom.getAttribute('value');
           var hex_name = dom.getAttribute('programName');
 
@@ -42,8 +44,10 @@ $(function () {
       }
 
 
-      window.downloadWav = function(dom)
+      window.downloadWav = function(dom, event)
       {
+          event.preventDefault();
+          
           var hex_id = dom.getAttribute('value');
           var hex_name = dom.getAttribute('programName');
 

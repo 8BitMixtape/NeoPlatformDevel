@@ -21,10 +21,10 @@
                           <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">EDIT</a>   
                           <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DELETE</a>                          
                           {% if record.hex_file.path %}
-                          <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadHex(this);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}">INSTALL</button>
+                          <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadHex(this,event);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}">INSTALL</button>
                           {% else %}
                           {% if record.wav_file %}
-                          <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadWav(this);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}">INSTALL</button>
+                          <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadWav(this,event);"  href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}">INSTALL</button>
                           {% endif %}            
                           {% endif %}
                         </div>
