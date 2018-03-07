@@ -17,11 +17,9 @@ security = "all"
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/vex-theme-wireframe.css'|theme }}">
 	<title>8BitMixtapeNEO - {{ this.page.title }}</title>
 
-  {% if this.page.id == 'home' %}
-  <meta property="og:title"              content="8BitMixtapeNEO" />
+  <meta property="og:title"              content="8BitMixtapeNEO - {{ this.page.title }" />
   <meta property="og:description"        content="Open Source lo-fi 8Bit synthesizer based on the Arduino-compatible ATtiny85 and TinyAudioBoot" />
   <meta property="og:image"              content="https://neo.8bitmixtape.cc/themes/NeoOrderWebsiteOcto/assets/images/logo.png" />
-  {% endif %}
 
 <body>
 
