@@ -20,43 +20,74 @@ notFoundMessage = "Record not found"
 		<div class="container">
 		  <div class="row mb-4">
 			<div class="col-md-9">
-			  <div class="card panel-shadow border-0">
+				<!-- main card -->
+			  <div class="card panel-shadow border-0 mb-4">
 				<div class="card-header bg-secondary mb-0">
 				  <h3 class="mb-0">{{ record.name }} </h3>
 				</div>
 				<div class="card-body bg-secondary">
-				  <p>{{ record.short_description }}<br>                                  {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
-	</p>
-				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</a> {% if record.hex_file.path %}
+				  <p>{{ record.short_description }}<br>{% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}</p>
+					
+					<a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</a> {% if record.hex_file.path %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.hex_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>HEX</a> {% endif %} {% if record.wav_file.path %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.wav_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>WAV</a> {% endif %} {% if record.hex_file.path %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.downloadHex(this,event);" href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</a> {% else %} {% if record.wav_file %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.downloadWav(this,event);" href="#" value="{{ record.wav_file.path }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>INSTALL</a> {% endif %} {% endif %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="https://community.8bitmixtape.cc/d/{{ record.flarum_id }}"><span class="fa fa-bolt icon-spacer"></span>DISCUSS</a>
 				 
-									{% if record.info %}
-									<pre class="nfo_viewer">		
-											{{ record.info }}				    
-									</pre> 
-								{% endif %}
+
+
 					</div>
-			  </div>
+				</div>
+				<!-- ~main card -->
+
+				{% if record.url_soundcloud %}	
+				<!-- soundcloud card -->
+			  <div class="card panel-shadow border-0 mb-4">
+						<div class="card-header bg-secondary mb-0">
+							<h4 class="mb-0">Demo Sound</h4>
+						</div>
+						<div class="card-body bg-secondary">
+								<iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="{{record.url_soundcloud}}"></iframe>
+						</div>
+				</div>
+				<!-- ~soundcloud card -->
+				{% endif %}
+		
+
+				{% if record.info %}				
+				<!-- readme card -->
+			  <div class="card panel-shadow border-0 mb-4">
+						<div class="card-header bg-secondary mb-0">
+							<h4 class="mb-0">Readme</h4>
+						</div>
+						<div class="card-body bg-secondary">
+							<pre>{{ record.info }}</pre>	
+						</div>
+				</div>
+				<!-- ~readme card -->
+				{% endif %}
+
+
 			</div>
 			<div class="col-md-3">
+
+				<!-- author card -->
 			  <div class="card panel-shadow bg-secondary border-0">
-				<div class="card-header bg-secondary">
-				  <h4 class="mb-0 text-center">Author</h4>
-				</div>
-				<img class="img-fluid mx-auto m-4 rounded-circle" src="{{ record.user.avatar.getThumb(100, 100, {'mode' : 'crop'}) }}" alt="Card image cap" height="100
-	100">
-				<ul class="list-group list-group-flush">
-				  <li class="list-group-item list-group-item-warning text-center">Uploaded by&nbsp;{{ record.user.name }}</li>
-				</ul>
-				<div class="card-body">
-				  <a href="#" class="card-link">Card link</a>
-				</div>
+					<div class="card-header bg-secondary">
+				  	<h4 class="mb-0 text-center">Author</h4>
+					</div>
+					
+					<img class="img-fluid mx-auto m-4 rounded-circle" src="{{ record.user.avatar.getThumb(100, 100, {'mode' : 'crop'}) }}" alt="Card image cap" height="100">
+					<ul class="list-group list-group-flush">
+				  	<li class="list-group-item list-group-item-warning text-center">Uploaded by&nbsp;{{ record.user.name }}</li>
+					</ul>
+					<div class="card-body">
+				  	<a href="#" class="card-link">Card link</a>
+					</div>
 				<div class="card-footer text-muted">2 days ago</div>
-			  </div>
+				</div>
+				<!-- ~author card -->
 			</div>
 		  </div>
 		  <!-- end row p4 -->
