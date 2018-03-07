@@ -7,7 +7,7 @@
     <!-- mixtape name -->
     <div class="form-group">
         <label for="name">Mixtape Name*</label>
-        <input name="name" class="form-control" id="name" required="" aria-invalid="false" value="{{ form_value('name') }}" type="text">
+        <input name="name" class="form-control" id="name" maxlength="45"  required="" aria-invalid="false" value="{{ form_value('name') }}" type="text">
         {{ errors.first('name') }}
     </div>
     <!-- ~mixtape name -->
@@ -15,7 +15,7 @@
     <!-- short desc -->
     <div class="form-group">
         <label for="short_description">Short Description* (85 character max)</label>
-        <textarea id="short_description" name="short_description" class="form-control" rows="2" cols="50" required="false" aria-invalid="false" >{{ form_value('short_description') }}</textarea>
+        <textarea id="short_description" name="short_description" class="form-control" maxlength="85" rows="2" cols="50" required="false" aria-invalid="false" >{{ form_value('short_description') }}</textarea>
         <div class="help-block"></div>
         {{ errors.first('short_description') }}
     </div>
@@ -46,7 +46,7 @@
     <!-- sound cloud -->
     <div class="form-group">
         <label for="url_soundcloud">Soundcloud Url (optional)</label>
-        <input name="url_soundcloud" class="form-control-file" id="url_soundcloud"  aria-invalid="false" value="{{ form_value('url_soundcloud') }}" type="text">
+        <input name="url_soundcloud" maxlength="300" class="form-control-file" id="url_soundcloud"  aria-invalid="false" value="{{ form_value('url_soundcloud') }}" type="text">
         {{ errors.first('name') }}
     </div>    
     <!-- ~soundcloud -->
@@ -54,7 +54,7 @@
     <!-- youtube -->
     <div class="form-group">
         <label for="url_youtube">Youtube Url (optional)</label>
-        <input name="url_youtube" class="form-control" id="url_youtube"  aria-invalid="false" value="{{ form_value('url_youtube') }}" type="text">
+        <input name="url_youtube" maxlength="300" class="form-control" id="url_youtube"  aria-invalid="false" value="{{ form_value('url_youtube') }}" type="text">
         {{ errors.first('name') }}
     </div>        
     <!-- ~youtube -->
