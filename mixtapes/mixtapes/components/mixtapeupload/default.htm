@@ -4,32 +4,60 @@
     {{ form_token() }}
     {{ form_sessionKey() }}
 
+    <!-- mixtape name -->
     <div class="form-group">
-        <label for="name">Mixtape Name</label>
+        <label for="name">Mixtape Name*</label>
         <input name="name" class="form-control" id="name" required="" aria-invalid="false" value="{{ form_value('name') }}" type="text">
         {{ errors.first('name') }}
     </div>
+    <!-- ~mixtape name -->
+
+    <!-- short desc -->
+    <div class="form-group">
+        <label for="short_description">Short Description* (85 character max)</label>
+        <textarea id="short_description" name="short_description" class="form-control" rows="2" cols="50" required="" aria-invalid="false" >{{ form_value('short_description') }}</textarea>
+        <div class="help-block"></div>
+        {{ errors.first('short_description') }}
+    </div>
+    <!-- ~ short desc -->
+
 
     <div class="form-group">
-        <label for="description">Description</label>
-    </label><textarea id="description" name="description" class="form-control" rows="4" cols="50" required="" aria-invalid="false" >{{ form_value('description') }}</textarea>
-    <div class="help-block"></div>
-    {{ errors.first('description') }}
+        <p>Tags*</p>
+        {% for tag in tags %}
+        <div class="form-check form-check-inline">
+                {{ form_checkbox('tags[]', tag.id, false, {id: "inlineRadio"~tag.tag, name:'tags[]',class: "form-check-input" } ) }}                    
+                <label class="form-check-label" for="inlineRadio{{tag.tag}}">{{tag.tag}}</label>
+        </div>                          
+        {% endfor %}  
+        {{ errors.first('tags') }}
+    </div>    
 
-    </div>
-
-
+    <!-- desc -->
     <div class="form-group">
-            <p><b>Tags</b></p>
-            {% for tag in tags %}
-            <div class="form-check form-check-inline">
-                    {{ form_checkbox('tags[]', tag.id, false, {id: "inlineRadio"~tag.tag, name:'tags[]',class: "form-check-input" } ) }}                    
-                    <label class="form-check-label" for="inlineRadio{{tag.tag}}">{{tag.tag}}</label>
-            </div>                          
-            {% endfor %}  
-            {{ errors.first('tags') }}
+        <label for="description">Full Description / How to (optional)</label>
+        <textarea id="description" name="description" class="form-control" rows="2" cols="50" required="" aria-invalid="false" >{{ form_value('description') }}</textarea>
+        <div class="help-block"></div>
+        {{ errors.first('description') }}
     </div>
+    <!-- ~desc -->
+
+
+    <!-- sound cloud -->
+    <div class="form-group">
+        <label for="url_soundcloud">Soundcloud Url (optional)</label>
+        <input name="url_soundcloud" class="form-control-file" id="url_soundcloud" required="" aria-invalid="false" value="{{ form_value('url_soundcloud') }}" type="text">
+        {{ errors.first('name') }}
+    </div>    
+    <!-- ~soundcloud -->
     
+    <!-- youtube -->
+    <div class="form-group">
+        <label for="url_youtube">Youtube Url (optional)</label>
+        <input name="url_youtube" class="form-control" id="url_youtube" required="" aria-invalid="false" value="{{ form_value('url_youtube') }}" type="text">
+        {{ errors.first('name') }}
+    </div>        
+    <!-- ~youtube -->
 
     <div class="form-group">
         <label class="btn btn-secondary btn-file">

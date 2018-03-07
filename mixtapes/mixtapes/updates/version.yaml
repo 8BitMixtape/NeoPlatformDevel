@@ -69,3 +69,6 @@
 1.0.24:
     - 'Updated table mixtapes_mixtapes_tags'
     - builder_table_update_mixtapes_mixtapes_tags4.php
+1.0.25:
+    - 'Updated table mixtapes_mixtapes_'
+    - builder_table_update_mixtapes_mixtapes__5.php

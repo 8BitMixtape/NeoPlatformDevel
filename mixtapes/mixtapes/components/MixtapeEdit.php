@@ -118,7 +118,9 @@ class MixtapeEdit extends ComponentBase
             $validator = Validator::make(
                 $form, [
                    'name' => 'required',
-                   'description' => 'required'
+                   'url_youtube' => 'url|max:300',
+                   'url_soundcloud' => 'url|max:300',
+                   'short_description' => 'required|max:85',                   
                 ]
             );
     
@@ -139,6 +141,9 @@ class MixtapeEdit extends ComponentBase
             // dd($hex_file);
         $mixtape->name = Input::get('name');
         $mixtape->description = Input::get('description');
+        $mixtape->short_description = Input::get('short_description');     
+        $mixtape->url_youtube = Input::get('url_youtube');        
+        $mixtape->url_soundcloud = Input::get('url_soundcloud');                           
         $mixtape->zip_file = $hex_file;
         $mixtape->save();
 
