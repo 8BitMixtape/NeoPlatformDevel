@@ -25,7 +25,7 @@ notFoundMessage = "Record not found"
 				  <h3 class="mb-0">{{ record.name }} </h3>
 				</div>
 				<div class="card-body bg-secondary">
-				  <p>{{ record.description }}<br>                                  {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
+				  <p>{{ record.short_description }}<br>                                  {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
 	</p>
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.zip_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>SOURCE CODE</a> {% if record.hex_file.path %}
 				  <a class="btn d-inline d-block d-sm-inline mb-2 bg-light btn-outline-dark btn-sq btn-flat panel-shadow btn-neon-carrot" href="#" onclick="window.open('{{ record.hex_file.path }}')" href="#" value="{{ record.id }}" programname="{{ record.name }}"><span class="fa fa-bolt icon-spacer"></span>HEX</a> {% endif %} {% if record.wav_file.path %}
