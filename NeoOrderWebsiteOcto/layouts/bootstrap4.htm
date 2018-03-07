@@ -17,6 +17,12 @@ security = "all"
 	<link rel="stylesheet" type="text/css" href="{{ 'assets/css/vex-theme-wireframe.css'|theme }}">
 	<title>8BitMixtapeNEO - {{ this.page.title }}</title>
 
+  {% if this.page.id == 'home' %}
+  <meta property="og:title"              content="8BitMixtapeNEO" />
+  <meta property="og:description"        content="Open Source Synthesizer?" />
+  <meta property="og:image"              content="https://neo.8bitmixtape.cc/themes/NeoOrderWebsiteOcto/assets/images/neodevice.png" />
+  {% endif %}
+
 <body>
 
 
