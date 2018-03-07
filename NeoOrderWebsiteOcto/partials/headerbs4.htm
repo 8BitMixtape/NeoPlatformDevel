@@ -61,7 +61,7 @@ forceUrl = 0
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item {% if this.page.id == 'upload-mixtape' %}active{% endif %} " href="{{ 'upload-mixtape'|page }}">Upload Mixtape</a>               
                             <a class="dropdown-item {% if this.page.id == 'my-mixtape' %}active{% endif %}" href="{{ 'my-mixtape'|page }}">My Mixtape</a>     
-                            <a class="dropdown-item" href=#">Favourites</a>                    
+                            <a class="dropdown-item" href="#">Favourites</a>                    
                             <a class="dropdown-item {% if this.page.id == 'account' %}active{% endif %}" href="{{ accountPage|page }}">{{ _('account', 'rainlab.user::lang.account') }}</a>
                             <a class="dropdown-item" href="#" data-request="onLogout" data-request-data="redirect: '{{ redirect }}'">{{ _('sign_out') }}</a>
                     </div>
@@ -92,8 +92,10 @@ forceUrl = 0
                <!-- logged out dropdown -->
                {% endif %}              
             </ul>
+            <!--             
             <a class="btn btn-default navbar-btn mr-2 btn-primary text" href="/en">EN</a>
-            <a class="btn btn-default navbar-btn btn-primary" href="/id">ID</a>
+            <a class="btn btn-default navbar-btn btn-primary" href="/id">ID</a> 
+            -->
           </div>
         </nav>
       </header>
