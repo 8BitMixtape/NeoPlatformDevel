@@ -8,7 +8,7 @@
             </div>
             <div class="card-body p-2">
             <div style="height: 5.5em;">
-                <p class="card-text">{{ html_limit(record.description, 150)|raw }} <br>
+                <p class="card-text">{{ html_limit(record.short_description, 150)|raw }} <br>
                 {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
                 </p>
             </div>            
