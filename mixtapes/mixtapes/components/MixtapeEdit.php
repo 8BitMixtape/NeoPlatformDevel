@@ -98,7 +98,7 @@ class MixtapeEdit extends ComponentBase
                         $extracted_hex_file = (new \System\Models\File)->fromData($hex_string, $hex_hex_filename);
                         $mixtape->hex_file = $extracted_hex_file;
 
-                        if(!$wav_string) $mixtape->wav_string->delete();
+                        if(!$wav_string) $mixtape->wav_file->delete();
                     }            
     
                     if ($wav_string || $hex_string)
