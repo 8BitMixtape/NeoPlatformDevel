@@ -3,13 +3,13 @@
 <!-- begin card -->
 <div class="col-md-4">
         <div class="card mb-4 box-shadow bg-indigo-100 panel-shadow bg-secondary mixtape-card">
-            <div class="card-header p-2 mb-2">
-                <h5 class="m-0">{{ html_limit(record.name, 24) }}</h5>
+            <div class="card-header p-2">
+                <h5 class="mb-0">{{ html_limit(record.name, 50) }}</h5>
             </div>
             <div class="card-body p-2">
-            <div style="height: 5.5em;">
+            <div style="height: 5em;">
                 <p class="card-text">{{ html_limit(record.short_description, 150)|raw }} <br>
-                {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
+                    {% for tag in record.tags %}<span class="badge badge-primary">{{ tag.tag }}</span> {% endfor %}
                 </p>
             </div>            
           </div>
@@ -19,7 +19,7 @@
                         <div class="btn-group btn-group-sm  w-100">
                           <a href="{{ 'mixtape-detail'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DETAIL</a>
                           <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">EDIT</a>   
-                          <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DELETE</a>                          
+                          <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DELETE</a>                                                    
                           {% if record.hex_file.path %}
                           <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadHex(this,event);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}">INSTALL</button>
                           {% else %}
@@ -37,3 +37,6 @@
 {% else %}
 {{ noRecordsMessage }}
 {% endfor %}
+
+
+
