@@ -155,7 +155,7 @@ class MixtapeEdit extends ComponentBase
         $flarum_id = $flarum->updateDiscussionMsg($user->username, $mixtape->flarum_post_id, Input::get('description'));
 
 
-        Flash::success('Mixtape edited!');
+        Flash::success('Mixtape Updated!');
         return Redirect::back()->withInput();
 
 
