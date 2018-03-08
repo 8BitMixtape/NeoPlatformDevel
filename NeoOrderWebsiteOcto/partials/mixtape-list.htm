@@ -17,7 +17,7 @@
           <div class="card-body p-2">
                 <div class="d-flex align-items-center justify-content-center">
                         <div class="btn-group btn-group-sm  w-100">
-                          <a href="{{ 'mixtape-detail'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DETAIL</a>
+                          <a href="{{ 'mixtape-detail'|page({ id: record.id }) }}"  class="btn btn-outline-dark btn-sm  w-100">DETAIL</a>
                           <button class="btn btn-outline-dark btn-sm w-100" onclick="window.open('{{ record.zip_file.path }}')"  href="#" value="{{ record.id }}" programname="{{ record.name }}">DOWNLOAD</button>                
                           {% if record.hex_file.path %}
                           <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadHex(this,event);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}">INSTALL</button>
