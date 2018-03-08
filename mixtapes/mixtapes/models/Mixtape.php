@@ -59,12 +59,16 @@ class Mixtape extends Model
             'perPage' => 100,
             'sort' => 'updated_ats desc',
             'tags' => null,
-            'year' => ''
+            'year' => '',
+            'userid' => null
         ], $options));
         if(!is_array($sort)){
             $sort = [$sort];
         }
 
+        if($userid !== null) {
+            $query->where('user_id', $userid);
+        }
 
         $query->orderBy("created_at", "desc");
 

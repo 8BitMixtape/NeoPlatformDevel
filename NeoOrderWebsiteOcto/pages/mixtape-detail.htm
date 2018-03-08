@@ -84,7 +84,7 @@ notFoundMessage = "Record not found"
 				  	<li class="list-group-item list-group-item-warning text-center">Uploaded by&nbsp;{{ record.user.name }}</li>
 					</ul>
 					<div class="card-body">
-				  	<a href="#" class="card-link">Card link</a>
+				  	<a href="{{ 'home'|page }}/mixtape/user/{{ record.user.id }}" class="card-link">See Mixtape by {{ record.user.name }}</a>
 					</div>
 				<div class="card-footer text-muted">2 days ago</div>
 				</div>
