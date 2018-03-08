@@ -118,7 +118,7 @@ class MixtapeEdit extends ComponentBase
             $validator = Validator::make(
                 $form, [
                    'name' => 'required',
-                   'url_youtube' => 'url|max:300',
+                   'url_youtube' => 'max:300',
                    'url_soundcloud' => 'url|max:300',
                    'short_description' => 'required|max:85',                   
                 ]

@@ -45,7 +45,7 @@
 
     <!-- sound cloud -->
     <div class="form-group">
-        <label for="url_soundcloud">Soundcloud Url (optional)</label>
+        <label for="url_soundcloud">Soundcloud Src embed Url (optional)</label>
         <input name="url_soundcloud" maxlength="300" class="form-control-file" id="url_soundcloud"  aria-invalid="false" value="{{ form_value('url_soundcloud') }}" type="text">
         {{ errors.first('name') }}
     </div>    
@@ -53,7 +53,7 @@
     
     <!-- youtube -->
     <div class="form-group">
-        <label for="url_youtube">Youtube Url (optional)</label>
+        <label for="url_youtube">Youtube Video ID (optional)</label>
         <input name="url_youtube" maxlength="300" class="form-control" id="url_youtube"  aria-invalid="false" value="{{ form_value('url_youtube') }}" type="text">
         {{ errors.first('name') }}
     </div>        
