@@ -28,11 +28,10 @@ class MyMixtape extends ComponentBase
 
     protected function loadMixtape(){
 
-        $user = Auth::getUser();
-        $user_id = $user->id;
-
-        $query = Mixtape::where('user_id', $user_id)->get();
-        
+        $user = Auth::getUser();        
+        $options = [];
+        $options['userid'] = $user->id;       
+        $query =  Mixtape::listFrontEnd($options);        
         return $query;
     }
 
