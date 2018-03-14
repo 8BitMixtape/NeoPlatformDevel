@@ -30,7 +30,7 @@ is_hidden = 0
   
 <script>
 window.deleteMixtape = function(dom, event){
-   // event.preventDefault();
+   event.preventDefault();
    var hex_id = (dom.getAttribute('value')); 
     $.request('onDelete', {
         data: {id: hex_id},

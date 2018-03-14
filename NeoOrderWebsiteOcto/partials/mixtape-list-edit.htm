@@ -19,7 +19,7 @@
                         <div class="btn-group btn-group-sm  w-100">
                           <a href="{{ 'mixtape-detail'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DETAIL</a>
                           <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">EDIT</a>   
-                          <a href="{{ 'mixtape-edit'|page }}/{{ record.id }}"  class="btn btn-outline-dark btn-sm  w-100">DELETE</a>                                                    
+                          <a href="#" value="{{ record.id }}" onClick="deleteMixtape(this,event)" class="btn btn-outline-dark btn-sm  w-100">DELETE</a>                                                    
                           {% if record.hex_file.path %}
                           <button class="btn btn-outline-dark btn-sm w-100" onclick="window.downloadHex(this,event);"  href="#" value="{{ record.hex_file.path }}" programname="{{ record.name }}">INSTALL</button>
                           {% else %}
