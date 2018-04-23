@@ -2,11 +2,8 @@ title = "Mixtape Exchange"
 url = "/mixtape"
 layout = "bootstrap4"
 is_hidden = 0
-
-
 ==
-<?
-
+<?php
 use Mixtapes\Mixtapes\Models\Mixtape;
 use Mixtapes\Mixtapes\Models\MixtapeTag;
 
@@ -29,7 +26,6 @@ function prepareVars()
 }
 ?>
 ==
-
 <div class="d-flex flex-column flex-md-row  align-items-center p-2 px-md-4 bg-white border-bottom box-shadow">
         <nav class="my-2 my-md-0 mr-md-3">
 
@@ -48,7 +44,7 @@ function prepareVars()
 
   <!-- user contributed -->
   <div class="album py-5 bg-success bg-pattern-circuit">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row p-0 mb-1">
             <div class="col-md-12">
               <h1 class="text-center text-secondary display-4 mb-4 fontforward pixel-text-header text-shadow">User contributed Mixtape&nbsp;</h1>
@@ -67,5 +63,3 @@ function prepareVars()
         </div>
 </div>
 <!-- user contributed -->
-    
-
