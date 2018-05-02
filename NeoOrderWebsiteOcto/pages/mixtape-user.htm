@@ -2,7 +2,6 @@ title = "Mixtape User"
 url = "/mixtape/user/:id?"
 layout = "bootstrap4"
 is_hidden = 0
-
 ==
 <?php
 use Mixtapes\Mixtapes\Models\Mixtape;
@@ -48,7 +47,7 @@ function prepareVars()
 
   <!-- user contributed -->
   <div class="album py-5 bg-success bg-pattern-circuit">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row p-0 mb-1">
             <div class="col-md-12">
               <h1 class="text-center text-secondary display-4 mb-4 fontforward pixel-text-header text-shadow">Mixtape by {{ user.name }}&nbsp;</h1>
